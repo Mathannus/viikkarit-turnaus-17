@@ -1,0 +1,20 @@
+.img-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.Lohkot-taulut {
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
+
+}
+
+.Lohkot  h3 {
+  width: 100%;
+  text-align: center;
+}
+
+div.Lohko {
+  width: 600px;
+}

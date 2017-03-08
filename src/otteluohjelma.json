@@ -1,0 +1,119 @@
+{
+    "kaukalo1":
+      [
+        {
+          "aika": "9:00",
+          "koti":"Viik H",
+          "vieras": "Vir 1",
+          "tulos":"7 - 3",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "9:30",
+          "koti":"Pel 1",
+          "vieras": "Jok 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "10:00",
+          "koti":"KJT 1",
+          "vieras": "KiVa 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "10:30",
+          "koti":"",
+          "vieras": "",
+          "tulos":"",
+          "jaakunnostus": true
+        },
+        {
+          "aika": "10:45",
+          "koti":"Jok 1",
+          "vieras": "Viik H",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "11:15",
+          "koti":"Vir 1",
+          "vieras": "KJT 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "11:45",
+          "koti":"KiVa 1",
+          "vieras": "Pel 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "12:15",
+          "koti":"",
+          "vieras": "",
+          "tulos":"",
+          "jaakunnostus": true
+        },
+        {
+          "aika": "12:30",
+          "koti":"Viik H",
+          "vieras": "KJT 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "13:00",
+          "koti":"KiVa 1",
+          "vieras": "Jok 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "13:30",
+          "koti":"Pel 1",
+          "vieras": "Vir 1",
+          "tulos":"",
+          "jaakunnostus": false
+        },
+        {
+          "aika": "14:00",
+          "koti":"",
+          "vieras": "",
+          "tulos":"",
+          "jaakunnostus": true
+        },
+        {"aika":"14:15",	"koti":"Jok 1", "vieras":	"KJT 1", "tulos":"","jaakunnostus": false },
+        {"aika":"14:45",	"koti":"Pel 1", "vieras":	"Viik H", "tulos":"","jaakunnostus": false },
+        {"aika":"15:15",	"koti":"KiVa 1", "vieras":	"Vir 1", "tulos":"","jaakunnostus": false },
+        {"aika":"15:45",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": true },
+        {"aika":"16:00",	"koti":"Pel 1", "vieras":	"KJT 1", "tulos":"","jaakunnostus": false },
+        {"aika":"16:30",	"koti":"Viik H", "vieras":	"KiVa 1", "tulos":"","jaakunnostus": false },
+        {"aika":"17:00",	"koti":"Jok 1", "vieras":	"Vir 1", "tulos":"","jaakunnostus": false },
+        {"aika":"17:45",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": false, "palkintojenjako": true }
+      ],
+    "kaukalo2": [
+      {"aika":"9:15",	"koti":"Viik S", "vieras":	"Vir 3", "tulos":"","jaakunnostus": false },
+      {"aika":"9:45",	"koti":"HPK 1", "vieras":	"Jok 3", "tulos":"","jaakunnostus": false },
+      {"aika":"10:15",	"koti":"Ket 1", "vieras":	"Kiva 3", "tulos":"","jaakunnostus": false },
+      {"aika":"10:45",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": true },
+      {"aika":"11:00",	"koti":"Jok 3", "vieras":	"Viik S", "tulos":"","jaakunnostus": false },
+      {"aika":"11:30",	"koti":"Vir 3", "vieras":	"Ket 1", "tulos":"","jaakunnostus": false },
+      {"aika":"12:00",	"koti":"KiVa 3", "vieras":	"HPK 1", "tulos":"","jaakunnostus": false },
+      {"aika":"12:30",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": true },
+      {"aika":"12:45",	"koti":"Viik S", "vieras":	"Ket 1", "tulos":"","jaakunnostus": false },
+      {"aika":"13:15",	"koti":"KiVa 3", "vieras":	"Jok 3", "tulos":"","jaakunnostus": false },
+      {"aika":"13:45",	"koti":"HPK 1", "vieras":	"Vir 3", "tulos":"","jaakunnostus": false },
+      {"aika":"14:15",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": true },
+      {"aika":"14:30",	"koti":"Jok 3", "vieras":	"Ket 1", "tulos":"","jaakunnostus": false },
+      {"aika":"15:00",	"koti":"HPK 1", "vieras":	"Viik S", "tulos":"","jaakunnostus": false },
+      {"aika":"15:30",	"koti":"KiVa 3", "vieras":	"Vir 3", "tulos":"","jaakunnostus": false },
+      {"aika":"16:00",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": true },
+      {"aika":"16:15",	"koti":"HPK 1", "vieras":	"Ket 1", "tulos":"","jaakunnostus": false },
+      {"aika":"16:45",	"koti":"Viik S", "vieras":	"KiVa 3", "tulos":"","jaakunnostus": false },
+      {"aika":"17:15",	"koti":"Jok 3", "vieras":	"Vir 3", "tulos":"","jaakunnostus": false },
+      {"aika":"17:45",	"koti":"", "vieras":	"", "tulos":"","jaakunnostus": false, "palkintojenjako": true }
+    ]
+}
