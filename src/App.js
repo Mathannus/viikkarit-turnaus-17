@@ -1,37 +1,30 @@
 import React, { Component } from 'react';
-import Kaukalo from './Kaukalo';
+import Kaukalot from './Kaukalot';
 import Lohkot from './Lohkot';
+import jQuery from 'jquery';
+
+//import OtteluOhjelma from './otteluohjelma.json';
 //import logo from './logo.svg';
-import logo from './Viikingit_merkki_teksti_rgb_90.png';
 import './css/App.css';
+
+//const appViews = ['kaukalot', 'joukkue', 'lohkot'];
 
 class App extends Component {
 
   constructor(props) {
       super(props);
-      let viewIndex = 0;
-      this.views = ['kaukalot', 'viikkarit-h', 'lohkot'];
-      const nextComponent = this.getNextComponent();
+
+      this.viewName = props.view;
+
       this.state = {
-        viewIndex: viewIndex,
-        nextComponent: nextComponent,
-        toggleCarousel: false
+        otteluohjelma: {},
+        admin: props.admin || false
       };
-
-      this.toggleCarousel = this.toggleCarousel.bind(this);
   }
 
-  rotate() {
-    let viewIndex = this.state.viewIndex;
-    viewIndex = (viewIndex + 1) % this.views.length;
-    const nextComponent = this.getNextComponent(viewIndex);
-    this.setState({viewIndex: viewIndex, nextComponent: nextComponent});
-  }
-
-  getNextComponent(viewIndex) {
-    const nextView = this.views[viewIndex];
+  getNextComponent(viewName = '') {
     let nextComponent = null;
-    switch(nextView) {
+    switch(viewName) {
       case 'viikkarit-h':
         nextComponent = <div className="Content"><h1>Viikkarit Hettarit</h1></div>
         break;
@@ -40,11 +33,9 @@ class App extends Component {
           break;
       case 'kaukalot':
       default:
+      console.log('Creating kaukalo with otteluohjelma',this.state.otteluohjelma);
       nextComponent =
-        <div className="Content">
-            <Kaukalo title="Kaukalo 1" name="kaukalo1"></Kaukalo>
-            <Kaukalo title="Kaukalo 2" name="kaukalo2"></Kaukalo>
-        </div>
+      <Kaukalot ottelut={this.state.otteluohjelma}/>
 
     }
 
@@ -52,43 +43,24 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.rotate();
-    if(this.state.toggleCarousel) {
-      this.startCarousel();      
-    }
+    jQuery.getJSON('http://localhost/tulospalvelu/ottelut').done((data) => {
+      console.log("got data from server",data);
+      this.setState({otteluohjelma: data});
+    });
+
+
+    const nextComponent = this.getNextComponent(this.viewName);
+    this.setState({nextComponent : nextComponent});
   }
 
-  startCarousel() {
-    const intervalId = setInterval(this.rotate.bind(this), 5000);
-    this.setState({intervalId : intervalId});
-  }
-
-  stopCarousel() {
-    clearInterval(this.state.intervalId);
-
-  }
-  componentWillUnmount() {
-    this.stopCarousel();
-  }
-
-  toggleCarousel(e) {
-      e.preventDefault();
-      this.state.toggleCarousel ? this.stopCarousel() : this.startCarousel();
-      this.setState({toggleCarousel: !this.state.toggleCarousel});
-  }
 
   render() {
-    const nextComponent = this.state.nextComponent;
-
+    console.log("App.render");
+    let component = this.getNextComponent(this.viewName);
     return (
-      <div className="App">
-        <div className="App-header">
-          <a href="#" onClick={this.toggleCarousel} id="carousel-link">{this.state.toggleCarousel ? "Stop": "Start"} carousel</a>
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Kotiturnaus 2.4.2017</h2>
+        <div>
+          {component}
         </div>
-          {nextComponent}
-      </div>
     );
   }
 }

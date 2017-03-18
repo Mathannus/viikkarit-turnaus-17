@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from './Logo';
 import './css/Lohkot.css';
 
 class Lohko extends Component {
@@ -10,12 +11,12 @@ class Lohko extends Component {
   }
 
   generateTableBody() {
-    return this.joukkueet.map((j, index) => {
-      const joukkue = j.joukkue;
-      console.log(j,joukkue);
+    return this.joukkueet.map((joukkue, index) => {
+//      const joukkue = j.joukkue;
+//      console.log(j,joukkue);
       return (
         <tr key={"tr-"+joukkue.tunniste}>
-          <td key={"td-logo-"+index}><img src={joukkue.logo} alt={joukkue.nimi+' Logo'} className="img-logo"/></td>
+          <td key={"td-logo-"+index}><Logo joukkue={joukkue}/></td>
           <td key={"td-lyhenne-"+index}>{joukkue.tunniste}</td>
           <td key={"td-nimi-"+index}>{joukkue.nimi}</td>
         </tr>
