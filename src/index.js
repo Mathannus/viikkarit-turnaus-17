@@ -1,18 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Main from './Main';
 import Kaukalot from './Kaukalot';
+import Login from './Login';
 import Lohkot from './Lohkot';
-import Joukkue from './Joukkue';
+import Main from './Main';
 import OtteluOhjelma from './otteluohjelma.json';
-import jQuery from 'jquery';
 
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import './css/index.css';
 
-window.$ = window.jQuery = jQuery;
 
+function isLoggedIn() {
+  return localStorage.getItem('jwtToken') !== null;
+}
+
+function requireAuth(nextState, replace) {
+  if (!isLoggedIn()) {
+    replace({
+      pathname: '/admin/login'
+    })
+  }
+}
 
 ReactDOM.render((
   <Router history={browserHistory}>
@@ -23,8 +32,9 @@ ReactDOM.render((
        (props) => <Kaukalot name={props.params.name} ottelut={OtteluOhjelma}/>
      }/>
      <Route path="/lohkot" component={Lohkot}/>
-     <Route path="/joukkue/:tunnus" component={Joukkue}/>
-     <Route path="/admin/kaukalo/:name" component={<App admin={true} view="kaukalot" />} />
+     <Route path="/joukkue/:tunnus" component={(props) => <App view="joukkue" joukkueTunnus={props.params.tunnus} />}/>
+     <Route path="/admin/login" component={Login}/>
+     <Route path="/admin/ottelut" component={(props) => <App admin={true} view="kaukalot" />} onEnter={requireAuth}/>
      </Route>
  </Router>
  ),

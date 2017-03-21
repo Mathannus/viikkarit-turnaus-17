@@ -6,31 +6,43 @@ class OtteluTulosInput extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {ottelu: props.ottelu};
+    const tulosKoti = props.ottelu.tulos[0] || "",
+      tulosVieras = props.ottelu.tulos.length === 0 ? "" : props.ottelu.tulos[1];
+    this.state = {
+      ottelu: props.ottelu,
+      tulosKoti: tulosKoti,
+      tulosVieras: tulosVieras
+    };
+
+    this.saveOtteluTulos = this.saveOtteluTulos.bind(this);
+    this.changeTulos = this.changeTulos.bind(this);
   }
 
   changeTulos(e) {
-    const newTulos = e.target.value,
-          className = e.target.className;
+    const target = e.target;
+    const value = target.value,
+          name = target.name;
 
-    if(className === "input-tulos-koti") {
-      console.log('Change the score of the home team:',newTulos);
-    } else {
-      console.log('Change the score of the guest team:',newTulos);
-    }
+
+    this.setState({[name]: value});
+
   }
 
-  saveOtteluTulos() {
-    console.log('Saving the game score');
+  saveOtteluTulos(event) {
+    const ottelu = this.state.ottelu;
+    ottelu.tulos[0] = this.state.tulosKoti;
+    ottelu.tulos[1] = this.state.tulosVieras;
+
+    this.props.onTulosUpdateSave(ottelu);
   }
 
 
   render() {
     return(
       <div>
-        <input className="input-tulos-koti" onChange={this.changeTulos}/>
+        <input type="text" name="tulosKoti" className="input-tulos-koti" onChange={this.changeTulos} value={this.state.tulosKoti}/>
         -
-        <input className="input-tulos-vieras" onChange={this.changeTulos}/>
+        <input type="text" name="tulosVieras" className="input-tulos-vieras" onChange={this.changeTulos} value={this.state.tulosVieras}/>
         <button className="btn-tallenna-tulos" onClick={this.saveOtteluTulos}>Tallenna</button>
       </div>
     )

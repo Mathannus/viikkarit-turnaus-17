@@ -13,8 +13,6 @@ class Kaukalo extends Component {
  }
 
   render() {
-    console.log("Kaukalo.render",this.props.ottelut);
-
     const ottelut1 = this.props.ottelut ? this.props.ottelut["etukentta"] : {};
     const ottelut2 = this.props.ottelut ? this.props.ottelut["takakentta"] : {};
 

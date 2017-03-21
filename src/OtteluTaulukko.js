@@ -18,9 +18,15 @@ class OtteluTaulukko extends Component {
     this.name = this.props.name || this.props.params.name;
     this.kentta = this.props.kentta || this.props.params.kentta || 'etukentta';
     this.isAdminMode = props.admin || false;
-    this.ottelut = props.ottelut || {};
-    console.log('Ottelutaulukko.constructor',this.ottelut);
-    this.state= {otteluohjelma: this.ottelut.ottelut};
+//    this.ottelut = props.ottelut || {};
+//    console.log('Ottelutaulukko.constructor',this.ottelut);
+
+    this.serverUrl = props.serverUrl || 'http://localhost/tulospalvelu';
+//    this.state= {otteluohjelma: this.ottelut.ottelut};
+    this.state= {otteluohjelma: []};
+
+    this.changeTulos = this.changeTulos.bind(this);
+    this.onTulosUpdateSave = this.onTulosUpdateSave.bind(this);
   }
 
   changeTulos(e) {
@@ -49,15 +55,39 @@ class OtteluTaulukko extends Component {
       tulos[0] + " - " + tulos[1];
   }
 
+  onTulosUpdateSave(ottelu) {
+    console.log("OtteluTaulukko.onTulosUpdateSave triggered",ottelu);
+
+    const serverUrl = this.serverUrl;
+    jQuery.ajax({
+      url: serverUrl + '/ottelu/' + ottelu.id,
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ tulosKoti: ottelu.tulos[0], tulosVieras: ottelu.tulos[1]}),
+      beforeSend: function(request) {
+        request.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('jwtToken'));
+      }
+    }).done((data) => {
+      console.log("got data from server",data);
+    });
+  }
+
+  componentDidMount() {
+    //TODO: Where to configure the server location?
+    jQuery.getJSON(this.serverUrl+'/ottelut/'+this.name+'/'+this.kentta).done((data) => {
+      this.setState({otteluohjelma: data});
+    });
+  }
+
   generateBody() {
-    return this.props.ottelut.ottelut.map((dataRow,index) => {
+    return this.state.otteluohjelma.map((dataRow,index) => {
             // handle the column data within each row
             var cells = dataRow.jaakunnostus ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="jaakunnostus" colSpan="2"> Jään kunnostus </td>] :
-              dataRow.palkintojenjako ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="palkintojenjako" colSpan="2"> Palkintojen jako </td>] :
+              dataRow.palkintojen_jako ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="palkintojenjako" colSpan="2"> Palkintojen jako </td>] :
               this.cols.map((colData, index)  => {
                 // colData.key might be "firstName"
                 return this.isAdminMode && colData.key === 'tulos' ?
-                <td key={index}><OtteluTulosInput ottelu={dataRow} /></td> :
+                <td key={index}><OtteluTulosInput onTulosUpdateSave={this.onTulosUpdateSave} ottelu={dataRow} /></td> :
                 colData.key === 'tulos' ? <td key={index}>{this.printTulos(dataRow[colData.key])}</td>:
                  <td key={index} className={"td-" + colData.key}>{dataRow[colData.key]}</td>;
             });
@@ -68,11 +98,9 @@ class OtteluTaulukko extends Component {
 
   render() {
 
-    if(jQuery.isEmptyObject(this.props.ottelut)) {
-      console.log("OtteluTaulukko.render: No games. Short circuiting")
+    if(jQuery.isEmptyObject(this.state.otteluohjelma)) {
       return null;
     }
-    console.log("OtteluTaulukko.render",this.props.ottelut);
 
     const tableHeaders = this.generateHeaders(),
           tableBody = this.generateBody();

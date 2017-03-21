@@ -10,7 +10,7 @@ constructor(props) {
 render() {
     return (
       <img
-        src={this.joukkue.logo}
+        src={"/" + this.joukkue.logo}
         alt={this.joukkue.nimi+' Logo'}
         className="img-logo"
       />
