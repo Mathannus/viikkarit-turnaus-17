@@ -1,7 +1,11 @@
+.ottelu-taulukko {
+  min-height: 200px;
+}
+
 .palkintojenjako {
 font-weight: bold;
 }
 
 .jaakunnostus {
-  font-weight: bold;  
+  font-weight: bold;
 }

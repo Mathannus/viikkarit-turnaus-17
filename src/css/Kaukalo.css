@@ -1,6 +1,6 @@
 .Kaukalo {
   width: 100%;
-  /* height: 600px; */
+  min-height: 600px;
   border-width: 2px;
   border-style: solid;
   border-radius: 25px;
@@ -14,6 +14,7 @@
 
 .Kaukalo table {
   width:80%;
+  height: 200px;
   border-width: 1px;
   margin-left:10%;
   margin-right:10%;
