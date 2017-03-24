@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router';
-import jQuery from 'jquery';
+import {Redirect} from 'react-router-dom';
+import Auth from './Auth'
 
 
-class Kaukalot extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
 
-    this.serverUrl = props.serverUrl || 'http://localhost/tulospalvelu';
+//    this.serverUrl = props.serverUrl || 'http://localhost/tulospalvelu';
+    this.serverUrl = process.env.REACT_APP_API_SERVER_HOST;
+    console.log(this.serverUrl);
     this.state = {
       name: "",
       password: "",
@@ -17,6 +19,7 @@ class Kaukalot extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.doLogin = this.doLogin.bind(this);
+    this.authenticationSuccessful = this.authenticationSuccessful.bind(this);
   }
 
   onInputChange(evt) {
@@ -27,31 +30,28 @@ class Kaukalot extends Component {
       this.setState({[name]: value});
   }
 
-  doLogin() {
-    const serverUrl = this.serverUrl,
-    name = this.state.name,
-    password = this.state.password;
-    jQuery.ajax({
-      url: serverUrl + '/login',
-      type: 'POST',
-      contentType: 'application/json',
-      dataType: 'text',
-      data: JSON.stringify({ name: name , password: password } ),
-    }).done((data) => {
-//      console.log("Got data from server",data);
-        localStorage.setItem('jwtToken',data);
-        this.setState({redirectToReferrer: true});
-      });
+  authenticationSuccessful() {
+    this.setState({redirectToReferrer: true});
+  }
 
+  authenticationFailed(message) {
+    alert(message);
+  }
+
+  doLogin() {
+    const name = this.state.name,
+    password = this.state.password;
+    Auth.authenticate(name,password,this.authenticationSuccessful, this.authenticationFailed);
   }
 
   render = () => {
 
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    console.log(this.props);
+    const { from } = this.props.location || { from: { pathname: '/admin/ottelut' } }
     const { redirectToReferrer } = this.state;
 
-    console.log("redirectToReferrer:",redirectToReferrer);
-    
+//    console.log("redirectToReferrer:",redirectToReferrer);
+    console.log(from);
     if (redirectToReferrer) {
       return (
         <Redirect to={from}/>
@@ -60,12 +60,28 @@ class Kaukalot extends Component {
 
 
     return (
-    <div className="Login">
-      <input name="name" onChange={this.onInputChange} value={this.state.name} type="text" />
-      <input name="password" onChange={this.onInputChange} value={this.state.password} type="password" />
-      <button className="btn-login" onClick={this.doLogin}>Kirjaudu sisään</button>
-    </div>
-  )}
-}
+      <div className="Login">
+        <h3>Please login: </h3>
+        <input name="name" onChange={this.onInputChange} value={this.state.name} type="text" />
+        <input name="password" onChange={this.onInputChange} value={this.state.password} type="password" />
+        <button className="btn-login" onClick={this.doLogin}>Kirjaudu sisään</button>
+      </div>
+    )
+  }
 
-export default Kaukalot;
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+/*
+    if (nextProps.signin.email !== undefined) {
+      SignInStorage.storeSignin(nextProps.signin.credentials);
+      this.context.router.push(this.props.nextPathname);
+    }
+*/
+  }
+}
+  Login.contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
+
+export default Login;
