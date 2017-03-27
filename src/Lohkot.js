@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/Lohkot.css';
 import Joukkueet from './joukkueet.json';
-import Lohko from './Lohko';
+import LohkoTaulukko from './LohkoTaulukko';
 
 class Lohkot extends Component {
 
@@ -22,10 +22,10 @@ class Lohkot extends Component {
       <div className="Lohkot">
       <h3>Lohkot</h3>
       <div className="Lohkot-taulut">
-        <Lohko name="Lohko A" joukkueet={this.getJoukkeet("A")} />
-        <Lohko name="Lohko B" joukkueet={this.getJoukkeet("B")} />
-        <Lohko name="Lohko C" joukkueet={this.getJoukkeet("C")} />
-        <Lohko name="Lohko D" joukkueet={this.getJoukkeet("D")} />
+        <LohkoTaulukko name="Lohko A" joukkueet={this.getJoukkeet("A")} />
+        <LohkoTaulukko name="Lohko B" joukkueet={this.getJoukkeet("B")} />
+        <LohkoTaulukko name="Lohko C" joukkueet={this.getJoukkeet("C")} />
+        <LohkoTaulukko name="Lohko D" joukkueet={this.getJoukkeet("D")} />
       </div>
       </div>
     )

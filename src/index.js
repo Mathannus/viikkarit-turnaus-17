@@ -4,6 +4,7 @@ import App from './App';
 import Auth from './Auth';
 import Kaukalot from './Kaukalot';
 import Login from './Login';
+import Lohko from './Lohko';
 import Lohkot from './Lohkot';
 import Main from './Main';
 import OtteluOhjelma from './otteluohjelma.json';
@@ -52,6 +53,7 @@ ReactDOM.render(
        (props) => <Kaukalot name={props.params.name} ottelut={OtteluOhjelma}/>
      }/>
      <Route path="/lohkot" component={Lohkot}/>
+     <Route path="/lohko/:tunniste" render={ props => (<Lohko tunniste={props.match.params.tunniste} />)}/>
      <Route path="/joukkue/:tunnus" component={(props) => <App view="joukkue" joukkueTunnus={props.params.tunnus} />}/>
      <Route path="/admin/login" component={(props) =><Login auth={Auth}/>}/>
      <PrivateRoute path="/admin/ottelut" component={Admin}/>

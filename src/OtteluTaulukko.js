@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LohkoJako from './lohkojako.json';
 import OtteluTulosInput from './OtteluTulosInput';
+import OtteluApi from './OtteluApi'
 import jQuery from 'jquery';
 import './css/OtteluTaulukko.css';
 
@@ -17,58 +18,22 @@ class OtteluTaulukko extends Component {
   constructor(props) {
     super(props);
 
-    this.serverUrl = process.env.REACT_APP_API_SERVER_HOST;
-
-    this.state= {otteluohjelma: []};
-
-    this.changeTulos = this.changeTulos.bind(this);
+//    this.serverUrl = process.env.REACT_APP_API_SERVER_HOST;
+//    this.state= {otteluohjelma: props.ottelut};
     this.onTulosUpdateSave = this.onTulosUpdateSave.bind(this);
   }
 
-  changeTulos(e) {
-    const newTulos = e.target.value,
-          className = e.target.className;
-
-    if(className === "input-tulos-koti") {
-      console.log('Change the score of the home team:',newTulos);
-    } else {
-      console.log('Change the score of the guest team:',newTulos);
-    }
-  }
-
-  saveOtteluTulos() {
-    console.log('Saving the game score');
-  }
-
-
   printTulos(tulos) {
     return (!Array.isArray(tulos) || tulos.length < 2) ?
-      " - " :
+      " " :
       tulos[0] + " - " + tulos[1];
   }
 
   onTulosUpdateSave(ottelu) {
     console.log("OtteluTaulukko.onTulosUpdateSave triggered",ottelu);
 
-    jQuery.ajax({
-      url: this.serverUrl + '/ottelu/' + ottelu.id,
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ tulosKoti: ottelu.tulos[0], tulosVieras: ottelu.tulos[1]}),
-      beforeSend: function(request) {
-        request.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('jwtToken'));
-      }
-    }).done((data) => {
+    OtteluApi.saveOtteluTulos(ottelu, (data) => {
       console.log("got data from server",data);
-    });
-  }
-
-  componentDidMount() {
-
-    let {name,kentta} = this.props
-    //TODO: Where to configure the server location?
-    jQuery.getJSON(this.serverUrl+'/ottelut/'+name+'/'+kentta).done((data) => {
-      this.setState({otteluohjelma: data});
     });
   }
 
@@ -80,7 +45,7 @@ class OtteluTaulukko extends Component {
 
   generateBody() {
     let {admin} = this.props;
-    return this.state.otteluohjelma.map((dataRow,index) => {
+    return this.props.ottelut.map((dataRow,index) => {
             // handle the column data within each row
             var cells = dataRow.jaakunnostus ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="jaakunnostus" colSpan="2"> Jään kunnostus </td>] :
               dataRow.palkintojen_jako ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="palkintojenjako" colSpan="2"> Palkintojen jako </td>] :
@@ -97,11 +62,11 @@ class OtteluTaulukko extends Component {
 
   getLohkoNimi() {
     //Short circuit if there are no games
-    if(jQuery.isEmptyObject(this.state.otteluohjelma)) {
+    if(jQuery.isEmptyObject(this.props.ottelut)) {
       return "";
     }
 
-    let lohkoId = this.state.otteluohjelma[0].lohko,
+    let lohkoId = this.props.ottelut[0].lohko,
       lohkoNimi = LohkoJako[lohkoId].nimi || "";
 
     return lohkoNimi;
@@ -110,7 +75,7 @@ class OtteluTaulukko extends Component {
   render() {
 
     let {kentta} = this.props;
-    if(jQuery.isEmptyObject(this.state.otteluohjelma)) {
+    if(jQuery.isEmptyObject(this.props.ottelut)) {
       return null;
     }
 

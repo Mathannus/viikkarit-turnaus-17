@@ -34,6 +34,9 @@ class Auth {
     callback();
   }
 
+  static getJwtToken() {
+      return localStorage.getItem('jwtToken');
+  }
 }
 
 export default Auth;
