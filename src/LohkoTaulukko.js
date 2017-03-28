@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import Logo from './Logo';
 import './css/Lohkot.css';
 
-class Lohko extends Component {
+class LohkoTaulukko extends Component {
+
 
   constructor(props) {
     super(props);
-    this.joukkueet = this.props.joukkueet;
-    this.name = this.props.name;
+
+    this.onTeamSelected = this.onTeamSelected.bind(this);
   }
 
+  onTeamSelected(joukkue) {
+    console.log("team row clicked",joukkue);
+    console.log(this.context.router);
+    this.context.router.history.push('/joukkue/'+joukkue.tunniste);
+
+  }
   generateTableBody() {
-    return this.joukkueet.map((joukkue, index) => {
-//      const joukkue = j.joukkue;
-//      console.log(j,joukkue);
+    return this.props.joukkueet.map((joukkue, index) => {
       return (
-        <tr key={"tr-"+joukkue.tunniste}>
+        <tr key={"tr-"+joukkue.tunniste} onClick={() => this.onTeamSelected(joukkue)}>
           <td key={"td-logo-"+index}><Logo joukkue={joukkue}/></td>
           <td key={"td-lyhenne-"+index}>{joukkue.tunniste}</td>
           <td key={"td-nimi-"+index}>{joukkue.nimi}</td>
@@ -27,8 +32,8 @@ class Lohko extends Component {
     const tableBody = this.generateTableBody();
     return (
       <div className="Lohko">
-        <h3>{this.name}</h3>
-        <table className="lohko-table">
+        <h3>{this.props.name}</h3>
+        <table className="lohko-table table">
         <thead>
         <tr>
           <th>Logo</th>
@@ -44,5 +49,8 @@ class Lohko extends Component {
     )
   }
 }
+LohkoTaulukko.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
 
-export default Lohko;
+export default LohkoTaulukko;

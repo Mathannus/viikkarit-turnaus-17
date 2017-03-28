@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Auth from './Auth';
+import Joukkue from './Joukkue';
 import Kaukalot from './Kaukalot';
 import Login from './Login';
 import Lohko from './Lohko';
@@ -15,7 +16,7 @@ import {
 } from 'react-router-dom'
 import './css/index.css';
 
-console.log(Auth);
+//console.log(Auth);
 /*
 function requireAuth(nextState, replace) {
   if (!Auth.isLoggedIn()) {
@@ -46,7 +47,7 @@ ReactDOM.render(
   (
 //  <Router history={browserHistory}>
   <Router>
-    <div>
+    <div className="container-fluid">
     <Main/>
      <Route exact path="/" component={App}/>
      <Route path="/kaukalo/:name" component={
@@ -54,7 +55,7 @@ ReactDOM.render(
      }/>
      <Route path="/lohkot" component={Lohkot}/>
      <Route path="/lohko/:tunniste" render={ props => (<Lohko tunniste={props.match.params.tunniste} />)}/>
-     <Route path="/joukkue/:tunnus" component={(props) => <App view="joukkue" joukkueTunnus={props.params.tunnus} />}/>
+     <Route path="/joukkue/:tunnus" render={ props => (<Joukkue tunnus={props.match.params.tunnus}/>)}/>
      <Route path="/admin/login" component={(props) =><Login auth={Auth}/>}/>
      <PrivateRoute path="/admin/ottelut" component={Admin}/>
   </div>

@@ -5,7 +5,7 @@ import Kaukalo from './Kaukalo';
 class Kaukalot extends Component {
   render = () => {
     return (
-    <div className="Content">
+    <div className="Content row">
       <Kaukalo
         title="Kaukalo 1"
         name="kaukalo1"

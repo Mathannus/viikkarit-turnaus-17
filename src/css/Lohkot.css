@@ -15,6 +15,16 @@
   text-align: center;
 }
 
+/*
 div.Lohko {
   width: 600px;
+}
+*/
+
+.lohko-table tr {
+  cursor: pointer;
+}
+
+.lohko-table tr:hover td {
+    background-color: red; /* or #000 */
 }

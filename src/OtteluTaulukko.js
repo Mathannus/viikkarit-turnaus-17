@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LohkoJako from './lohkojako.json';
 import OtteluTulosInput from './OtteluTulosInput';
 import OtteluApi from './OtteluApi'
 import jQuery from 'jquery';
@@ -47,8 +46,8 @@ class OtteluTaulukko extends Component {
     let {admin} = this.props;
     return this.props.ottelut.map((dataRow,index) => {
             // handle the column data within each row
-            var cells = dataRow.jaakunnostus ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="jaakunnostus" colSpan="2"> Jään kunnostus </td>] :
-              dataRow.palkintojen_jako ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="palkintojenjako" colSpan="2"> Palkintojen jako </td>] :
+            var cells = dataRow.jaakunnostus ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="jaakunnostus" colSpan="3"> Jään kunnostus </td>] :
+              dataRow.palkintojen_jako ? [<td key="1">{dataRow.aika}</td>,<td key="2" className="palkintojenjako" colSpan="3"> Palkintojen jako </td>] :
               COLUMNS.map((colData, index)  => {
                 // colData.key might be "firstName"
                 return admin && colData.key === 'tulos' ?
@@ -59,22 +58,8 @@ class OtteluTaulukko extends Component {
             return <tr key={index}>{cells}</tr>;
         });
   }
-
-  getLohkoNimi() {
-    //Short circuit if there are no games
-    if(jQuery.isEmptyObject(this.props.ottelut)) {
-      return "";
-    }
-
-    let lohkoId = this.props.ottelut[0].lohko,
-      lohkoNimi = LohkoJako[lohkoId].nimi || "";
-
-    return lohkoNimi;
-  }
-
   render() {
 
-    let {kentta} = this.props;
     if(jQuery.isEmptyObject(this.props.ottelut)) {
       return null;
     }
@@ -82,11 +67,9 @@ class OtteluTaulukko extends Component {
     const tableHeaders = this.generateHeaders(),
           tableBody = this.generateBody();
 
-    const lohko = this.getLohkoNimi();
     return (
       <div className="ottelu-taulukko">
-      <h3>{kentta === 'etukentta' ? 'Etukenttä':'Takakenttä'} : {lohko}</h3>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             {tableHeaders}

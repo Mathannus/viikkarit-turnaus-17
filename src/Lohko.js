@@ -32,9 +32,12 @@ render() {
     const lohkoId = this.props.tunniste.toUpperCase(),
           joukkueet = this.getJoukkeet(lohkoId);
 
+    console.log('joukkueet: ',joukkueet);
+
     return (
       <div className="Lohko">
         <LohkoTaulukko name={"Lohko "+lohkoId} joukkueet={joukkueet}/>
+        <h3>Pelatut ottelut:</h3>
         <OtteluTaulukko kentta={this.getKentta()} ottelut={this.state.ottelut}/>
       </div>
 
