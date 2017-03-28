@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import Auth from './Auth';
-import Joukkue from './Joukkue';
-import Kaukalot from './Kaukalot';
-import Login from './Login';
-import Lohko from './Lohko';
-import Lohkot from './Lohkot';
-import Main from './Main';
+import App from './components/App';
+import Joukkue from './components/Joukkue';
+import Kaukalot from './components/Kaukalot';
+import Login from './components/Login';
+import Lohko from './components/Lohko';
+import Lohkot from './components/Lohkot';
+import Main from './components/Main';
 import OtteluOhjelma from './otteluohjelma.json';
 import {
   BrowserRouter as Router,
   Route,
   Redirect
 } from 'react-router-dom'
-import './css/index.css';
+import './index.css';
 
 //console.log(Auth);
 /*

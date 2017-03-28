@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
-import Joukkueet from './joukkueet.json';
-import OtteluApi from './OtteluApi';
+import Joukkueet from '../joukkueet.json';
+import OtteluApi from '../OtteluApi';
 import OtteluTaulukko from './OtteluTaulukko';
 
 //import './css/Joukkue.css';

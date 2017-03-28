@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OtteluTulosInput from './OtteluTulosInput';
-import OtteluApi from './OtteluApi'
+import OtteluApi from '../OtteluApi'
 import jQuery from 'jquery';
 import './css/OtteluTaulukko.css';
 

@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import LohkoTaulukko from './LohkoTaulukko';
 import OtteluTaulukko from './OtteluTaulukko';
-import OtteluApi from './OtteluApi';
-import Joukkueet from './joukkueet.json';
+import OtteluApi from '../OtteluApi';
+import Joukkueet from '../joukkueet.json';
 
 
 class Lohko extends Component {

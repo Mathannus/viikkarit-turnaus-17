@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import jQuery from 'jquery';
-import LohkoJako from './lohkojako.json';
+import LohkoJako from '../lohkojako.json';
 import OtteluTaulukko from './OtteluTaulukko';
-import OtteluApi from './OtteluApi';
+import OtteluApi from '../OtteluApi';
 import './css/Kaukalo.css';
 
 class Kaukalo extends Component {

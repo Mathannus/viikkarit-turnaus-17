@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/Lohkot.css';
-import Joukkueet from './joukkueet.json';
+import Joukkueet from '../joukkueet.json';
 import LohkoTaulukko from './LohkoTaulukko';
 
 class Lohkot extends Component {
