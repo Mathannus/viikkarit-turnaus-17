@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import LohkoTaulukko from './LohkoTaulukko';
 import OtteluTaulukko from './OtteluTaulukko';
 import OtteluApi from '../OtteluApi';
-import Joukkueet from '../joukkueet.json';
+import {joukkueApi} from '../JoukkueApi';
 
 
 class Lohko extends Component {
@@ -11,10 +11,6 @@ class Lohko extends Component {
     super(props);
     this.state = {ottelut: []};
   }
-
-getJoukkeet(lohko) {
-    return Joukkueet['joukkueet'].filter(joukkue => joukkue.lohko === lohko);
-}
 
 componentDidMount() {
   OtteluApi.getOttelut(['pelatut','lohko',this.props.tunniste], (ottelut) => {
@@ -30,7 +26,20 @@ getKentta() {
 render() {
   console.log(this.props);
     const lohkoId = this.props.tunniste.toUpperCase(),
-          joukkueet = this.getJoukkeet(lohkoId);
+          joukkueet = joukkueApi.getJoukkueet(lohkoId).map((joukkue) => {
+            joukkue.pisteet = joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut);
+            joukkue.ranking = joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut);
+            return joukkue;
+          }).sort((a,b) => {
+            let sortIndex = 0;
+            if(a.ranking === 0) {
+              sortIndex = 1;
+            } else  {
+                sortIndex = a.ranking - b.ranking;
+            }
+            console.log(a,b,sortIndex);
+            return sortIndex;
+          });
 
     console.log('joukkueet: ',joukkueet);
 

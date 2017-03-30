@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
-import Joukkueet from '../joukkueet.json';
 import OtteluApi from '../OtteluApi';
 import OtteluTaulukko from './OtteluTaulukko';
-
+import {joukkueApi} from '../JoukkueApi';
 //import './css/Joukkue.css';
 
 class Joukkue extends Component {
@@ -12,7 +11,7 @@ class Joukkue extends Component {
     super(props);
     this.joukkueTunnus = decodeURI(props.tunnus);
     console.log(this.joukkueTunnus);
-    const joukkue = Joukkueet.joukkueet.find(joukkue => joukkue.tunniste.toLowerCase() === this.joukkueTunnus.toLowerCase());
+    const joukkue = joukkueApi.getJoukkue(this.joukkueTunnus);
 
     this.state = {joukkue: joukkue, ottelut: []};
   }
@@ -20,30 +19,16 @@ class Joukkue extends Component {
 
   componentDidMount() {
     console.log(this.state.joukkue.tunniste);
-    OtteluApi.getOttelut(['pelatut','joukkue', this.state.joukkue.tunniste],(data) => {
+    OtteluApi.getOttelut(['pelatut','lohko', this.state.joukkue.lohko],(data) => {
 //      console.log(data);
       console.log(data, ' is array ', Array.isArray(data));
       this.setState({ottelut: [...data]});
     });
   }
 
-  calculatePoints() {
-    if(this.state.ottelut.length === 0) return "-";
-    const points = this.state.ottelut.reduce((acc, ottelu) => {
-      console.log(ottelu);
-      if(ottelu.koti === this.state.joukkue.tunniste && ottelu.tulos[0] > ottelu.tulos[1]) {
-        return acc + 2;
-      } else if(ottelu.vieras === this.state.joukkue.tunniste && ottelu.tulos[0] < ottelu.tulos[1]) {
-        return acc + 2;
-      } else if (ottelu.tulos[0] === ottelu.tulos[1]) {
-        return acc + 1;
-      }
-      return acc + 0;
-    },0);
-
-    console.log(points);
-
-    return points;
+  getJoukkueOttelut() {
+    const jTunniste = this.state.joukkue.tunniste;
+    return this.state.ottelut.filter((ottelu) => (ottelu.koti === jTunniste || ottelu.vieras === jTunniste));
   }
 
   render() {
@@ -57,12 +42,12 @@ class Joukkue extends Component {
           <dt>lohko</dt>
           <dd>{joukkue.lohko}</dd>
           <dt>pisteet</dt>
-          <dd>{this.calculatePoints() || '-'}</dd>
+          <dd>{joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
           <dt>ranking</dt>
-          <dd>{joukkue.ranking || '-'}</dd>
+          <dd>{joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
         </dl>
         <h3>Pelatut ottelut: </h3>
-        <OtteluTaulukko ottelut={this.state.ottelut} />
+        <OtteluTaulukko ottelut={this.getJoukkueOttelut()} />
       </div>
     )
   }

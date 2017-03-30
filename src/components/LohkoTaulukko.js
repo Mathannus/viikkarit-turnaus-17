@@ -12,11 +12,9 @@ class LohkoTaulukko extends Component {
   }
 
   onTeamSelected(joukkue) {
-    console.log("team row clicked",joukkue);
-    console.log(this.context.router);
     this.context.router.history.push('/joukkue/'+joukkue.tunniste);
-
   }
+
   generateTableBody() {
     return this.props.joukkueet.map((joukkue, index) => {
       return (
@@ -24,6 +22,8 @@ class LohkoTaulukko extends Component {
           <td key={"td-logo-"+index}><Logo joukkue={joukkue}/></td>
           <td key={"td-lyhenne-"+index}>{joukkue.tunniste}</td>
           <td key={"td-nimi-"+index}>{joukkue.nimi}</td>
+          <td key={"td-pisteet-"+index}>{joukkue.pisteet}</td>
+          <td key={"td-ranking-"+index}>{joukkue.ranking}</td>
         </tr>
       );
     });
@@ -39,6 +39,8 @@ class LohkoTaulukko extends Component {
           <th>Logo</th>
           <th>Lyhenne</th>
           <th>Nimi</th>
+          <th>Pisteet</th>
+          <th>Ranking</th>
         </tr>
         </thead>
         <tbody>
