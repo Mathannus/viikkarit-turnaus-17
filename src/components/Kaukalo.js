@@ -10,8 +10,9 @@ class Kaukalo extends Component {
 
  constructor(props) {
    super(props);
-   this.name = props.name || props.params.name;
-   this.title = props.title || this.name;
+   this.name = props.name;
+   this.title = props.title || (props.name === 'kaukalo1' ? 'Kaukalo 1' : 'Kaukalo 2');
+   console.log(props.title,this.title);
    this.ottelut = props.ottelut || {};
    this.admin = props.admin || false;
 
@@ -54,14 +55,18 @@ class Kaukalo extends Component {
   render() {
 
     return (
-      <div className="col-xs-12 col-sm-6">
-        <div className="Kaukalo">
-          <h3> {this.title} </h3>
-            <h3>Etukenttä : <Link to={"/lohko/"+this.getLohkoId('etukentta')}>{this.getLohkoNimi('etukentta')}</Link></h3>
-            <OtteluTaulukko admin={this.admin} name={this.name} kentta="etukentta" ottelut={this.state.ottelut.etukentta}/>
-            <div className='kaukalo-split-border'></div>
-            <h3>Takakenttä : <Link to={"/lohko/"+this.getLohkoId('takakentta')}>{this.getLohkoNimi('takakentta')}</Link></h3>
-            <OtteluTaulukko admin={this.admin} name={this.name} kentta="takakentta" ottelut={this.state.ottelut.takakentta}/>
+      <div className="Kaukalo row">
+        <div className="col-sm-12">
+          <h3>{this.title}</h3>
+        </div>
+        <div className="col-sm-6">
+          <h3>Etukenttä : <Link to={"/lohko/"+this.getLohkoId('etukentta')}>{this.getLohkoNimi('etukentta')}</Link></h3>
+          <OtteluTaulukko admin={this.admin} name={this.name} kentta="etukentta" ottelut={this.state.ottelut.etukentta}/>
+        </div>
+        <div className='kaukalo-split-border-vertical'></div>
+        <div className="col-sm-6 kaukalo-split-border-vertical">
+          <h3>Takakenttä : <Link to={"/lohko/"+this.getLohkoId('takakentta')}>{this.getLohkoNimi('takakentta')}</Link></h3>
+          <OtteluTaulukko admin={this.admin} name={this.name} kentta="takakentta" ottelut={this.state.ottelut.takakentta}/>
         </div>
       </div>
     )

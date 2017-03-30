@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import OtteluTulosInput from './OtteluTulosInput';
 import OtteluApi from '../OtteluApi'
 import jQuery from 'jquery';
+import {joukkueApi} from '../JoukkueApi';
 import './css/OtteluTaulukko.css';
 
 
@@ -53,6 +54,8 @@ class OtteluTaulukko extends Component {
                 return admin && colData.key === 'tulos' ?
                 <td key={index}><OtteluTulosInput onTulosUpdateSave={this.onTulosUpdateSave} ottelu={dataRow} /></td> :
                 colData.key === 'tulos' ? <td key={index}>{this.printTulos(dataRow[colData.key])}</td>:
+                colData.key === 'koti' ? <td key={index}>{joukkueApi.getJoukkue(dataRow[colData.key]).nimi}</td> :
+                colData.key === 'vieras' ? <td key={index}>{joukkueApi.getJoukkue(dataRow[colData.key]).nimi}</td> :
                  <td key={index} className={"td-" + colData.key}>{dataRow[colData.key]}</td>;
             });
             return <tr key={index}>{cells}</tr>;

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import Auth from './Auth';
 import App from './components/App';
 import Joukkue from './components/Joukkue';
+import Kaukalo from './components/Kaukalo';
 import Kaukalot from './components/Kaukalot';
 import Login from './components/Login';
 import Lohko from './components/Lohko';
 import Lohkot from './components/Lohkot';
 import Main from './components/Main';
-import OtteluOhjelma from './otteluohjelma.json';
 import {
   BrowserRouter as Router,
   Route,
@@ -50,8 +50,8 @@ ReactDOM.render(
     <div className="container-fluid">
     <Main/>
      <Route exact path="/" component={App}/>
-     <Route path="/kaukalo/:name" component={
-       (props) => <Kaukalot name={props.params.name} ottelut={OtteluOhjelma}/>
+     <Route path="/kaukalo/:name" render={
+       props => (<Kaukalo name={props.match.params.name}/>)
      }/>
      <Route path="/lohkot" component={Lohkot}/>
      <Route path="/lohko/:tunniste" render={ props => (<Lohko tunniste={props.match.params.tunniste} />)}/>

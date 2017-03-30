@@ -1,17 +1,26 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
   /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
+  vertical-align: bottom;
 }
 
 .App-header {
+  clear: both;
   background-color: #E0001B;
   height: 120px;
   padding: 20px;
   color: white;
+}
+
+.App-header h2 {
+  display: inline;
+  text-align: right;
+  vertical-align: bottom;
+  margin-left: 20px;
 }
 
 .App-intro {

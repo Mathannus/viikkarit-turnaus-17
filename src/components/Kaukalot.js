@@ -6,16 +6,20 @@ class Kaukalot extends Component {
   render = () => {
     return (
     <div className="Content row">
-      <Kaukalo
-        title="Kaukalo 1"
-        name="kaukalo1"
-        admin={this.props.admin || false}
-      ></Kaukalo>
-      <Kaukalo
-        title="Kaukalo 2"
-        name="kaukalo2"
-        admin={this.props.admin || false}
-      ></Kaukalo>
+      <div className="col-xs-12">
+        <Kaukalo
+          title="Kaukalo 1"
+          name="kaukalo1"
+          admin={this.props.admin || false}
+        />
+      </div>
+      <div className="col-xs-12">
+        <Kaukalo
+          title="Kaukalo 2"
+          name="kaukalo2"
+          admin={this.props.admin || false}
+        />
+      </div>
     </div>
   )}
 }

@@ -4,8 +4,9 @@
   border-width: 2px;
   border-style: solid;
   border-radius: 25px;
-  font-size: 16px;
   margin: 10px 10px 10px 10px;
+/*  font-size: 16px;
+  */
 }
 
 .Kaukalo h3 {
@@ -25,6 +26,10 @@
   border-bottom:2px solid #313030;
   width:100%;
   height: 2px;
+}
+
+.kaukalo-split-border-vertical {
+  border-left:2px solid #313030;
 }
 
 .Kaukalo table td,th {

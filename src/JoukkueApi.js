@@ -61,7 +61,8 @@ export class JoukkueApi {
 
    const joukkueRanking =  rankings.sort((a,b) => (b.pisteet - a.pisteet)).findIndex((joukkue) => (joukkue.tunniste === joukkueTunnus));
    // rankings starts from 1 but index starts from zero.
-   return joukkueRanking + 1;
+   return joukkueRanking >= 0 ? joukkueRanking + 1 : rankings.length + 1;
+//   return joukkueRanking + 1;
  }
 }
 

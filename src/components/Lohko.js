@@ -24,7 +24,6 @@ getKentta() {
 }
 
 render() {
-  console.log(this.props);
     const lohkoId = this.props.tunniste.toUpperCase(),
           joukkueet = joukkueApi.getJoukkueet(lohkoId).map((joukkue) => {
             joukkue.pisteet = joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut);
@@ -40,8 +39,6 @@ render() {
             console.log(a,b,sortIndex);
             return sortIndex;
           });
-
-    console.log('joukkueet: ',joukkueet);
 
     return (
       <div className="Lohko">
