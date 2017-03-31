@@ -15,7 +15,8 @@
     "logo": "viikkarit-logo.jpg",
     "ranking": "",
     "pisteet": "",
-    "lohko": "A"
+    "lohko": "A",
+    "seura": "Viikingit"
   },
   {
     "tunniste": "Viik R",
@@ -23,7 +24,8 @@
     "logo": "viikkarit-logo.jpg",
     "ranking": "",
     "pisteet": "",
-    "lohko": "B"
+    "lohko": "B",
+    "seura": "Viikingit"
   },
   {
     "tunniste": "Viik S",
@@ -31,7 +33,8 @@
     "logo": "viikkarit-logo.jpg",
     "ranking": "",
     "pisteet": "",
-    "lohko": "C"
+    "lohko": "C",
+    "seura": "Viikingit"
   },
   {
       "tunniste": "Viik U",
@@ -39,7 +42,8 @@
       "logo": "viikkarit-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Viikingit"
   },
   {
     "tunniste": "Vir M",
@@ -47,7 +51,8 @@
     "logo": "virkia2-logo.png",
     "ranking": "",
     "pisteet": "",
-    "lohko": "A"
+    "lohko": "A",
+    "seura": "Lapuan Virkiä"
   },
   {
       "tunniste": "Vir P",
@@ -55,7 +60,8 @@
       "logo": "virkia2-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "B"
+      "lohko": "B",
+      "seura": "Lapuan Virkiä"
   },
   {
       "tunniste": "Vir J",
@@ -63,7 +69,8 @@
       "logo": "virkia2-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "C"
+      "lohko": "C",
+      "seura": "Lapuan Virkiä"
   },
   {
       "tunniste": "Jok S",
@@ -71,7 +78,8 @@
       "logo": "jokerit-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "A"
+      "lohko": "A",
+      "seura": "Jokerit"
   },
   {
       "tunniste": "Jok V",
@@ -79,7 +87,8 @@
       "logo": "jokerit-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "B"
+      "lohko": "B",
+      "seura": "Jokerit"
   },
   {
       "tunniste": "Jok K",
@@ -87,7 +96,8 @@
       "logo": "jokerit-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "C"
+      "lohko": "C",
+      "seura": "Jokerit"
   },
   {
       "tunniste": "Jok P",
@@ -95,7 +105,8 @@
       "logo": "jokerit-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Jokerit"
   },
   {
       "tunniste": "Pel V",
@@ -103,7 +114,8 @@
       "logo": "JuniorPelicans-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "A"
+      "lohko": "A",
+      "seura": "Pelicans"
   },
   {
       "tunniste": "Pel T",
@@ -111,7 +123,8 @@
       "logo": "JuniorPelicans-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "B"
+      "lohko": "B",
+      "seura": "Pelicans"
   },
   {
       "tunniste": "Pel M",
@@ -119,7 +132,8 @@
       "logo": "JuniorPelicans-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Pelicans"
   },
   {
       "tunniste": "KJT W",
@@ -127,7 +141,8 @@
       "logo": "KJT.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "A"
+      "lohko": "A",
+      "seura": "KJT"
   },
   {
       "tunniste": "KJT B",
@@ -135,7 +150,8 @@
       "logo": "KJT.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "B"
+      "lohko": "B",
+      "seura": "KJT"
   },
   {
       "tunniste": "KiVa R",
@@ -143,7 +159,8 @@
       "logo": "Kiekko-Vantaa-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "B"
+      "lohko": "B",
+      "seura": "Kiekko-Vantaa"
   },
   {
       "tunniste": "KiVa C",
@@ -151,7 +168,8 @@
       "logo": "Kiekko-Vantaa-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "A"
+      "lohko": "A",
+      "seura": "Kiekko-Vantaa"
   },
   {
       "tunniste": "KiVa W",
@@ -159,7 +177,8 @@
       "logo": "Kiekko-Vantaa-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "C"
+      "lohko": "C",
+      "seura": "Kiekko-Vantaa"
   },
   {
       "tunniste": "KiVa H",
@@ -167,7 +186,8 @@
       "logo": "Kiekko-Vantaa-logo.jpg",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Kiekko-Vantaa"
   },
   {
       "tunniste": "HPK V",
@@ -175,7 +195,8 @@
       "logo": "HPK-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "C"
+      "lohko": "C",
+      "seura": "Hämeenlinnan Pallokerho"
   },
   {
       "tunniste": "HPK O",
@@ -183,7 +204,8 @@
       "logo": "HPK-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Hämeenlinnan Pallokerho"
   },
   {
       "tunniste": "Ket V",
@@ -191,7 +213,8 @@
       "logo": "kettera2-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "C"
+      "lohko": "C",
+      "seura": "Imatran Ketterä"
   },
   {
       "tunniste": "Ket S",
@@ -199,6 +222,7 @@
       "logo": "kettera2-logo.png",
       "ranking": "",
       "pisteet": "",
-      "lohko": "D"
+      "lohko": "D",
+      "seura": "Imatran Ketterä"
   }]
 }

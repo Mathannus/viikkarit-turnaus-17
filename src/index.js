@@ -8,6 +8,7 @@ import Kaukalot from './components/Kaukalot';
 import Login from './components/Login';
 import Lohko from './components/Lohko';
 import Lohkot from './components/Lohkot';
+import LoppuTulokset from './components/LoppuTulokset';
 import Main from './components/Main';
 import {
   BrowserRouter as Router,
@@ -54,6 +55,7 @@ ReactDOM.render(
        props => (<Kaukalo name={props.match.params.name}/>)
      }/>
      <Route path="/lohkot" component={Lohkot}/>
+     <Route path="/lopputulokset" component={LoppuTulokset}/>
      <Route path="/lohko/:tunniste" render={ props => (<Lohko tunniste={props.match.params.tunniste} />)}/>
      <Route path="/joukkue/:tunnus" render={ props => (<Joukkue tunnus={props.match.params.tunnus}/>)}/>
      <Route path="/admin/login" component={(props) =><Login auth={Auth}/>}/>

@@ -7,6 +7,10 @@
   height: 80px;
   vertical-align: bottom;
 }
+.App-logo-woodberg {
+  height: 80px;
+  vertical-align: bottom;
+}
 
 .App-header {
   clear: both;
@@ -19,8 +23,9 @@
 .App-header h2 {
   display: inline;
   text-align: right;
-  vertical-align: bottom;
+  vertical-align: baseline;;
   margin-left: 20px;
+  font-size: 46px;
 }
 
 .App-intro {

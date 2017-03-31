@@ -56,11 +56,8 @@ class Kaukalo extends Component {
 
     return (
       <div className="Kaukalo row">
-        <div className="col-sm-12">
-          <h3>{this.title}</h3>
-        </div>
         <div className="col-sm-6">
-          <h3>Etukenttä : <Link to={"/lohko/"+this.getLohkoId('etukentta')}>{this.getLohkoNimi('etukentta')}</Link></h3>
+          <h3>{this.title} Etukenttä : <Link to={"/lohko/"+this.getLohkoId('etukentta')}>{this.getLohkoNimi('etukentta')}</Link></h3>
           <OtteluTaulukko admin={this.admin} name={this.name} kentta="etukentta" ottelut={this.state.ottelut.etukentta}/>
         </div>
         <div className='kaukalo-split-border-vertical'></div>

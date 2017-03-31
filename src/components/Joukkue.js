@@ -35,19 +35,23 @@ class Joukkue extends Component {
     const joukkue = this.state.joukkue;
     return (
       <div className="Joukkue">
-        <h3><Logo joukkue={joukkue}/> {joukkue.nimi} </h3>
-        <dl className="dl-horizontal">
-          <dt>tunniste</dt>
-          <dd>{joukkue.tunniste}</dd>
-          <dt>lohko</dt>
-          <dd>{joukkue.lohko}</dd>
-          <dt>pisteet</dt>
-          <dd>{joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
-          <dt>ranking</dt>
-          <dd>{joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
-        </dl>
-        <h3>Pelatut ottelut: </h3>
-        <OtteluTaulukko ottelut={this.getJoukkueOttelut()} />
+        <div className="col-xs-12 col-sm-6">
+          <h3><Logo joukkue={joukkue}/> {joukkue.nimi} </h3>
+          <dl className="dl-horizontal">
+            <dt>tunniste</dt>
+            <dd>{joukkue.tunniste}</dd>
+            <dt>lohko</dt>
+            <dd>{joukkue.lohko}</dd>
+            <dt>pisteet</dt>
+            <dd>{joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
+            <dt>ranking</dt>
+            <dd>{joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
+          </dl>
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          <h3>Pelatut ottelut: </h3>
+          <OtteluTaulukko ottelut={this.getJoukkueOttelut()} />
+        </div>
       </div>
     )
   }

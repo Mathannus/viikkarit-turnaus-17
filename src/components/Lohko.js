@@ -42,9 +42,13 @@ render() {
 
     return (
       <div className="Lohko">
-        <LohkoTaulukko name={"Lohko "+lohkoId} joukkueet={joukkueet}/>
-        <h3>Pelatut ottelut:</h3>
-        <OtteluTaulukko kentta={this.getKentta()} ottelut={this.state.ottelut}/>
+        <div className="col-xs-12 col-sm-6">
+          <LohkoTaulukko name={"Lohko "+lohkoId} joukkueet={joukkueet}/>
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          <h3>Pelatut ottelut:</h3>
+          <OtteluTaulukko kentta={this.getKentta()} ottelut={this.state.ottelut}/>
+        </div>
       </div>
 
     );
