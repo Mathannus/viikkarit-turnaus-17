@@ -19,7 +19,7 @@ class OtteluTaulukko extends Component {
     super(props);
 
 //    this.serverUrl = process.env.REACT_APP_API_SERVER_HOST;
-//    this.state= {otteluohjelma: props.ottelut};
+    this.state= {updatedOttelut: new Set()};
     this.onTulosUpdateSave = this.onTulosUpdateSave.bind(this);
   }
 
@@ -33,8 +33,21 @@ class OtteluTaulukko extends Component {
     console.log("OtteluTaulukko.onTulosUpdateSave triggered",ottelu);
 
     OtteluApi.saveOtteluTulos(ottelu, (data) => {
-      console.log("got data from server",data);
+      console.log("got data from server",data, ottelu);
+      this.setState({updatedOttelut: this.state.updatedOttelut.add(ottelu.id)});
+      setTimeout(() => {
+        const ottelut = this.state.updatedOttelut;
+        console.log(ottelut);
+        ottelut.delete(ottelu.id);
+        console.log(ottelut);
+
+        this.setState({updatedOttelut: ottelut});
+      },1000);
     });
+  }
+
+  isOtteluUpdated(ottelu) {
+    return this.state.updatedOttelut.has(ottelu.id);
   }
 
   generateHeaders() {
@@ -58,7 +71,7 @@ class OtteluTaulukko extends Component {
                 colData.key === 'vieras' ? <td key={index}>{joukkueApi.getJoukkue(dataRow[colData.key]).nimi}</td> :
                  <td key={index} className={"td-" + colData.key}>{dataRow[colData.key]}</td>;
             });
-            return <tr key={index}>{cells}</tr>;
+            return <tr className={this.isOtteluUpdated(dataRow)? 'ottelu-updated' : 'ottelu'} key={index}>{cells}</tr>;
         });
   }
   render() {

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import OtteluApi from '../OtteluApi';
 import './css/OtteluTulosInput.css';
 
 class OtteluTulosInput extends Component {
@@ -11,7 +12,8 @@ class OtteluTulosInput extends Component {
     this.state = {
       ottelu: props.ottelu,
       tulosKoti: tulosKoti,
-      tulosVieras: tulosVieras
+      tulosVieras: tulosVieras,
+      updated: false
     };
 
     this.saveOtteluTulos = this.saveOtteluTulos.bind(this);
@@ -32,14 +34,19 @@ class OtteluTulosInput extends Component {
     const ottelu = this.state.ottelu;
     ottelu.tulos[0] = this.state.tulosKoti;
     ottelu.tulos[1] = this.state.tulosVieras;
-
+/*
+    OtteluApi.saveOtteluTulos(ottelu, (data) => {
+      console.log("got data from server",data);
+      this.setState({updated:true});
+    });
+*/
     this.props.onTulosUpdateSave(ottelu);
   }
 
 
   render() {
     return(
-      <div>
+      <div className={this.state.updated ? 'tulos-input-updated' : 'tulos-input'}>
         <input type="text" name="tulosKoti" className="input-tulos-koti" onChange={this.changeTulos} value={this.state.tulosKoti}/>
         -
         <input type="text" name="tulosVieras" className="input-tulos-vieras" onChange={this.changeTulos} value={this.state.tulosVieras}/>
