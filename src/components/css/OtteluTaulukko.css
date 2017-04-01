@@ -3,14 +3,19 @@
 }
 
 .palkintojenjako {
-font-weight: bold;
+  font-size: 20px;
+  text-align: center !important;
 }
 
 .jaakunnostus {
-  font-weight: bold;
+  font-size: 20px;
+  text-align: center !important;
 }
 
 
+.table > thead > tr > th {
+  min-width: 60px;
+}
 
 
 .table > tbody > tr > td {

@@ -28,3 +28,11 @@ div.Lohko {
 .lohko-table tr:hover td {
     background-color: red; /* or #000 */
 }
+
+.lohko-pisteet {
+  text-align: right;
+}
+
+.lohko-ranking {
+  text-align: right;
+}
