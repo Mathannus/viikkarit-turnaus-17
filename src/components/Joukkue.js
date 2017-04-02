@@ -20,7 +20,6 @@ class Joukkue extends Component {
   componentDidMount() {
     console.log(this.state.joukkue.tunniste);
     OtteluApi.getOttelut(['pelatut','lohko', this.state.joukkue.lohko],(data) => {
-//      console.log(data);
       console.log(data, ' is array ', Array.isArray(data));
       this.setState({ottelut: [...data]});
     });
@@ -29,6 +28,25 @@ class Joukkue extends Component {
   getJoukkueOttelut() {
     const jTunniste = this.state.joukkue.tunniste;
     return this.state.ottelut.filter((ottelu) => (ottelu.koti === jTunniste || ottelu.vieras === jTunniste));
+  }
+
+  getTehdytMaalit(){
+    const jTunniste = this.state.joukkue.tunniste;
+    const tehdyt = this.getJoukkueOttelut().reduce((acc,ottelu) =>{
+      acc += (ottelu.koti === jTunniste) ? ottelu.tulos[0] : ottelu.tulos[1];
+      return acc;
+    },0);
+    return tehdyt;
+  }
+
+  getPaastetytMaalit() {
+    const jTunniste = this.state.joukkue.tunniste;
+    const maalit = this.getJoukkueOttelut().reduce((acc,ottelu) =>{
+      acc += (ottelu.koti === jTunniste) ? ottelu.tulos[1] : ottelu.tulos[0];
+      return acc;
+    },0);
+    return maalit;
+
   }
 
   render() {
@@ -46,6 +64,10 @@ class Joukkue extends Component {
             <dd>{joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
             <dt>ranking</dt>
             <dd>{joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
+            <dt>Tehdyt maalit</dt>
+            <dd>{this.getTehdytMaalit() || '-'}</dd>
+            <dt>Päästetyt maalit</dt>
+            <dd>{this.getPaastetytMaalit() || '-'}</dd>
           </dl>
         </div>
         <div className="col-xs-12 col-sm-6">
