@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
+import Logo from './Logo';
 import {joukkueApi} from '../JoukkueApi';
 import OtteluApi from '../OtteluApi';
+import './css/LoppuTulokset.css';
+
+
+const LOPPUTULOKSET = [
+{nimi:'Jokerit',logo: 'Jok S', pisteet:'6'},
+{nimi:'Lapuan Virkiä',logo: 'Vir J', pisteet:'7'},
+{nimi:'Pelicans',logo: 'Pel T', pisteet:'12'},
+{nimi:'Hämeenlinnan Pallokerho',logo: 'HPK V', pisteet:'14'},
+{nimi:'Kiekko-Vantaa',logo: 'KiVa H', pisteet:'19'},
+{nimi:'Vuosaaren Viikingit' ,logo: 'Viik H',pisteet:'20'},
+{nimi:'Imatran Ketterä',logo: 'Ket V', pisteet:'22'},
+{nimi:'KJT',logo: 'KJT W', pisteet:'22'}
+];
 
 class LoppuTulokset extends Component {
 
@@ -58,6 +72,16 @@ class LoppuTulokset extends Component {
 
   generateTableBody(){
 
+    return LOPPUTULOKSET.sort((a,b) => (a.pisteet - b.pisteet)).map((seura,index) => (
+      <tr key={index}>
+        <td>{index+1}</td>
+        <td><Logo joukkue={joukkueApi.getJoukkue(seura.logo)}/></td>
+        <td>{seura.nimi}</td>
+        <td>{seura.pisteet}</td>
+      </tr>
+    ));
+
+    /*
 
     return this.state.seurat.map((seura,index) => (
       <tr key={index}>
@@ -67,7 +91,6 @@ class LoppuTulokset extends Component {
       </tr>
     ));
 
-/*
     return this.state.joukkueet.map((lohko,index) => {
       console.log(lohko);
         return lohko.joukkueet.map((joukkue, index) =>(
@@ -91,12 +114,12 @@ class LoppuTulokset extends Component {
     return (
       <div className="loppuTulokset">
         <h3>Lopputulokset: </h3>
-        <p>WORK IN PROGRESS. PLEASE COME BACK LATER</p>
 
         <table className="table">
           <thead>
           <tr>
             <th>Sija</th>
+            <th></th>
             <th>Seura</th>
             <th>Loppupisteet</th>
           </tr>
