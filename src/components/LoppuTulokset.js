@@ -23,7 +23,7 @@ class LoppuTulokset extends Component {
 
     this.state = {joukkueet: [], seurat: []};
   }
-
+/*
   componentDidMount() {
 //    const joukkueet = joukkueApi.getJoukkueet();
 //    this.setState({joukkueet: joukkueet});
@@ -54,7 +54,7 @@ class LoppuTulokset extends Component {
       });
     });
   }
-
+*/
   calculateSeuraPisteet(joukkueet) {
     const joukkueMaara = joukkueet.length;
     const seuraPisteet = joukkueet.reduce((acc, joukkue,index) =>{
