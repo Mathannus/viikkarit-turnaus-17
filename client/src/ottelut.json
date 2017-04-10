@@ -1,0 +1,99 @@
+{
+  "kaukalo1":{
+    "etukentta":{
+      "lohko":"lohko-b","ottelut":[
+        {"id":"21","aika":"09:00:00","koti":"Viik R","vieras":"Vir P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[1,7]},
+        {"id":"22","aika":"09:30:00","koti":"Pel T","vieras":"Jok V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[1,4]},
+        {"id":"23","aika":"10:00:00","koti":"KJT B","vieras":"KiVa R","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[2,4]},
+        {"id":"24","aika":"10:30:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[]},
+        {"id":"25","aika":"10:45:00","koti":"Jok V","vieras":"Viik R","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[11,3]},
+        {"id":"26","aika":"11:15:00","koti":"Vir P","vieras":"KJT B","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[8,1]},
+        {"id":"27","aika":"11:45:00","koti":"KiVa R","vieras":"Pel T","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[2,5]},
+        {"id":"28","aika":"12:15:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[]},
+        {"id":"29","aika":"12:30:00","koti":"Viik R","vieras":"KJT B","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[2,5]},
+        {"id":"30","aika":"13:00:00","koti":"KiVa R","vieras":"Jok V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[1,8]},
+        {"id":"31","aika":"13:30:00","koti":"Pel T","vieras":"Vir P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[3,3]},
+        {"id":"32","aika":"14:00:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[]},
+        {"id":"33","aika":"14:15:00","koti":"Jok V","vieras":"KJT B","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[14,1]},
+        {"id":"34","aika":"14:45:00","koti":"Pel T","vieras":"Viik R","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[3,2]},
+        {"id":"35","aika":"15:15:00","koti":"KiVa R","vieras":"Vir P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[1,6]},
+        {"id":"36","aika":"15:45:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[]},
+        {"id":"37","aika":"16:00:00","koti":"Pel T","vieras":"KJT B","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[7,3]},
+        {"id":"38","aika":"16:30:00","koti":"Viik R","vieras":"KiVa R","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[2,3]},
+        {"id":"39","aika":"17:00:00","koti":"Jok V","vieras":"Vir P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-b","tulos":[5,1]},
+        {"id":"40","aika":"17:45:00","koti":"","vieras":"","jaakunnostus":false,"palkintojen_jako":true,"lohko":"lohko-b","tulos":[]}
+      ]
+    },
+    "takakentta":{
+      "lohko":"lohko-a","ottelut":[
+        {"id":"1","aika":"09:00:00","koti":"Viik H","vieras":"Vir M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[2,3]},
+        {"id":"2","aika":"09:30:00","koti":"Pel V","vieras":"Jok S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[3,10]},
+        {"id":"3","aika":"10:00:00","koti":"KJT W","vieras":"KiVa C","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[3,7]},
+        {"id":"4","aika":"10:30:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[]},
+        {"id":"5","aika":"10:45:00","koti":"Jok S","vieras":"Viik H","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[4,2]},
+        {"id":"6","aika":"11:15:00","koti":"Vir M","vieras":"KJT W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[10,4]},
+        {"id":"7","aika":"11:45:00","koti":"KiVa C","vieras":"Pel V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[4,4]},
+        {"id":"8","aika":"12:15:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[]},
+        {"id":"9","aika":"12:30:00","koti":"Viik H","vieras":"KJT W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[8,4]},
+        {"id":"10","aika":"13:00:00","koti":"KiVa C","vieras":"Jok S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[1,10]},
+        {"id":"11","aika":"13:30:00","koti":"Pel V","vieras":"Vir M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[4,3]},
+        {"id":"12","aika":"14:00:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[]},
+        {"id":"13","aika":"14:15:00","koti":"Jok S","vieras":"KJT W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[11,0]},
+        {"id":"14","aika":"14:45:00","koti":"Pel V","vieras":"Viik H","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[6,6]},
+        {"id":"15","aika":"15:15:00","koti":"KiVa C","vieras":"Vir M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[0,9]},
+        {"id":"16","aika":"15:45:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[]},
+        {"id":"17","aika":"16:00:00","koti":"Pel V","vieras":"KJT W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[5,7]},
+        {"id":"18","aika":"16:30:00","koti":"Viik H","vieras":"KiVa C","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[6,3]},
+        {"id":"19","aika":"17:00:00","koti":"Jok S","vieras":"Vir M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-a","tulos":[3,2]},
+        {"id":"20","aika":"17:45:00","koti":"","vieras":"","jaakunnostus":false,"palkintojen_jako":true,"lohko":"lohko-a","tulos":[]}]}},
+  "kaukalo2":{
+    "etukentta":{
+      "lohko":"lohko-d","ottelut":[
+        {"id":"61","aika":"09:15:00","koti":"Viik U","vieras":"Pel M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[0,10]},
+        {"id":"62","aika":"09:45:00","koti":"HPK O","vieras":"Jok P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[1,6]},
+        {"id":"63","aika":"10:15:00","koti":"Ket S","vieras":"KiVa H","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[3,9]},
+        {"id":"64","aika":"10:45:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[]},
+        {"id":"65","aika":"11:00:00","koti":"Jok P","vieras":"Viik U","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[7,2]},
+        {"id":"66","aika":"11:30:00","koti":"Pel M","vieras":"Ket S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[2,2]},
+        {"id":"67","aika":"12:00:00","koti":"KiVa H","vieras":"HPK O","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[1,6]},
+        {"id":"68","aika":"12:30:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[]},
+        {"id":"69","aika":"12:45:00","koti":"Viik U","vieras":"Ket S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[5,3]},
+        {"id":"70","aika":"13:15:00","koti":"KiVa H","vieras":"Jok P","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[0,6]},
+        {"id":"71","aika":"13:45:00","koti":"HPK O","vieras":"Pel M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[3,5]},
+        {"id":"72","aika":"14:15:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[]},
+        {"id":"73","aika":"14:30:00","koti":"Jok P","vieras":"Ket S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[9,0]},
+        {"id":"74","aika":"15:00:00","koti":"HPK O","vieras":"Viik U","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[7,2]},
+        {"id":"75","aika":"15:30:00","koti":"KiVa H","vieras":"Pel M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[4,4]},
+        {"id":"76","aika":"16:00:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[]},
+        {"id":"77","aika":"16:15:00","koti":"HPK O","vieras":"Ket S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[7,1]},
+        {"id":"78","aika":"16:45:00","koti":"Viik U","vieras":"KiVa H","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[1,2]},
+        {"id":"79","aika":"17:15:00","koti":"Jok P","vieras":"Pel M","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-d","tulos":[7,3]},
+        {"id":"80","aika":"17:45:00","koti":"","vieras":"","jaakunnostus":false,"palkintojen_jako":true,"lohko":"lohko-d","tulos":[]}
+      ]
+    },
+    "takakentta":{
+      "lohko":"lohko-c","ottelut":[
+        {"id":"41","aika":"09:15:00","koti":"Viik S","vieras":"Vir J","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[0,2]},
+        {"id":"42","aika":"09:45:00","koti":"HPK V","vieras":"Jok K","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[4,2]},
+        {"id":"43","aika":"10:15:00","koti":"Ket V","vieras":"KiVa W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[3,7]},
+        {"id":"44","aika":"10:45:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[]},
+        {"id":"45","aika":"11:00:00","koti":"Jok K","vieras":"Viik S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[10,1]},
+        {"id":"46","aika":"11:30:00","koti":"Vir J","vieras":"Ket V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[1,0]},
+        {"id":"47","aika":"12:00:00","koti":"KiVa W","vieras":"HPK V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[1,9]},
+        {"id":"48","aika":"12:30:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[]},
+        {"id":"49","aika":"12:45:00","koti":"Viik S","vieras":"Ket V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[1,7]},
+        {"id":"50","aika":"13:15:00","koti":"KiVa W","vieras":"Jok K","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[1,5]},
+        {"id":"51","aika":"13:45:00","koti":"HPK V","vieras":"Vir J","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[3,3]},
+        {"id":"52","aika":"14:15:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[]},
+        {"id":"53","aika":"14:30:00","koti":"Jok K","vieras":"Ket V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[10,2]},
+        {"id":"54","aika":"15:00:00","koti":"HPK V","vieras":"Viik S","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[9,0]},
+        {"id":"55","aika":"15:30:00","koti":"KiVa W","vieras":"Vir J","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[1,2]},
+        {"id":"56","aika":"16:00:00","koti":"","vieras":"","jaakunnostus":true,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[]},
+        {"id":"57","aika":"16:15:00","koti":"HPK V","vieras":"Ket V","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[4,2]},
+        {"id":"58","aika":"16:45:00","koti":"Viik S","vieras":"KiVa W","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[0,6]},
+        {"id":"59","aika":"17:15:00","koti":"Jok K","vieras":"Vir J","jaakunnostus":false,"palkintojen_jako":false,"lohko":"lohko-c","tulos":[8,2]},
+        {"id":"60","aika":"17:45:00","koti":"","vieras":"","jaakunnostus":false,"palkintojen_jako":true,"lohko":"lohko-c","tulos":[]}
+      ]
+    }
+  }
+}

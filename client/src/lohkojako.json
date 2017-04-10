@@ -1,0 +1,42 @@
+{
+  "lohko-a": {
+    "nimi": "Lohko A",
+    "joukkueet": [
+      {"joukkue": {"tunniste": "Viik H" ,"nimi": "Viikingit Hettari", "logo": "viikkarit-logo.jpg"}, "ranking": "", "pisteet": ""},
+      {"joukkue": {"tunniste": "Vir M" ,"nimi": "Lapuan Virkiä Make", "logo": "virkia2-logo.png"}, "ranking": "", "pisteet": ""},
+      {"joukkue": {"tunniste": "Jok S" ,"nimi": "Jokerit Sininen", "logo": "jokerit-logo.jpg"}, "ranking": "", "pisteet": ""},
+      {"joukkue": {"tunniste": "Pel V" ,"nimi": "Pelicans Valkoinen", "logo": "JuniorPelicans-logo.jpg"}, "ranking": "", "pisteet": ""},
+      {"joukkue": {"tunniste": "KJT W" ,"nimi": "KJT White", "logo": "KJT.png"}, "ranking": "", "pisteet": ""},
+      {"joukkue": {"tunniste": "KiVa H" ,"nimi": "Kiekko-Vantaa Hawks", "logo": "Kiekko-Vantaa-logo.jpg"}, "ranking": "", "pisteet": ""}
+    ]},
+  "lohko-b": {
+    "nimi": "Lohko B",
+    "joukkueet":[
+    {"joukkue": {"tunniste": "Viik R" ,"nimi": "Viikingit Rudus", "logo": "viikkarit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Vir P" ,"nimi": "Lapuan Virkiä Pate", "logo": "virkia2-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Jok V" ,"nimi": "Jokerit Valkoinen", "logo": "jokerit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Pel T" ,"nimi": "Pelicans Turkoosi", "logo": "JuniorPelicans-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "KJT B" ,"nimi": "KJT Blue", "logo": "KJT.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "KiVa W" ,"nimi": "Kiekko-Vantaa Wings", "logo": "Kiekko-Vantaa-logo.jpg"}, "ranking": "", "pisteet": ""}
+    ]},
+  "lohko-c": {
+    "nimi": "Lohko C",
+    "joukkueet":[
+    {"joukkue": {"tunniste": "Viik S" ,"nimi": "Viikingit Shell", "logo": "viikkarit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Vir J" ,"nimi": "Lapuan Virkiä Jarde", "logo": "virkia2-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Jok K" ,"nimi": "Jokerit Keltainen", "logo": "jokerit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "HPK V" ,"nimi": "Hämeenlinnan Pallokerho Valkoinen", "logo": "HPK-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Ket V" ,"nimi": "Imatran Ketterä Valkoinen", "logo": "kettera2-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "KiVa R" ,"nimi": "Kiekko-Vantaa Rangers", "logo": "Kiekko-Vantaa-logo.jpg"}, "ranking": "", "pisteet": ""}
+    ]},
+  "lohko-d": {
+    "nimi": "Lohko D",
+    "joukkueet":[
+    {"joukkue": {"tunniste": "Viik U" ,"nimi": "Viikingit Uutela", "logo": "viikkarit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Pel M" ,"nimi": "Pelicans Musta", "logo": "JuniorPelicans-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Jok P" ,"nimi": "Jokerit Punainen", "logo": "jokerit-logo.jpg"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "HPK O" ,"nimi": "Hämeenlinnan Pallokerho Oranssi", "logo": "HPK-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "Ket S" ,"nimi": "Imatran Ketterä Sininen", "logo": "kettera2-logo.png"}, "ranking": "", "pisteet": ""},
+    {"joukkue": {"tunniste": "KiVa C" ,"nimi": "Kiekko-Vantaa Canadiens", "logo": "Kiekko-Vantaa-logo.jpg"}, "ranking": "", "pisteet": ""}
+    ]}
+}

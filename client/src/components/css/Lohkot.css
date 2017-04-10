@@ -1,0 +1,38 @@
+.img-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.Lohkot-taulut {
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
+
+}
+
+.Lohkot  h3 {
+  width: 100%;
+  text-align: center;
+}
+
+/*
+div.Lohko {
+  width: 600px;
+}
+*/
+
+.lohko-table tr {
+  cursor: pointer;
+}
+
+.lohko-table tr:hover td {
+    background-color: red; /* or #000 */
+}
+
+.lohko-pisteet {
+  text-align: right;
+}
+
+.lohko-ranking {
+  text-align: right;
+}
