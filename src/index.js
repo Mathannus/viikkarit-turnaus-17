@@ -4,7 +4,6 @@ import Auth from './Auth';
 import App from './components/App';
 import Joukkue from './components/Joukkue';
 import Kaukalo from './components/Kaukalo';
-import Kaukalot from './components/Kaukalot';
 import Login from './components/Login';
 import Lohko from './components/Lohko';
 import Lohkot from './components/Lohkot';
@@ -17,16 +16,6 @@ import {
 } from 'react-router-dom'
 import './index.css';
 
-//console.log(Auth);
-/*
-function requireAuth(nextState, replace) {
-  if (!Auth.isLoggedIn()) {
-    replace({
-      pathname: '/admin/login'
-    })
-  }
-}
-*/
 const PrivateRoute = ({ component, ...rest }) => (
   <Route {...rest} render={props => (
     Auth.isLoggedIn() ? (
@@ -43,10 +32,7 @@ const PrivateRoute = ({ component, ...rest }) => (
 const Admin = () => <App admin={true} view="kaukalot" />;
 
 ReactDOM.render(
-//  <AuthExample />
-
   (
-//  <Router history={browserHistory}>
   <Router>
     <div className="container-fluid">
     <Main/>

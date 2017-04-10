@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import Logo from './Logo';
 import {joukkueApi} from '../JoukkueApi';
-import OtteluApi from '../OtteluApi';
+//import OtteluApi from '../OtteluApi';
 import './css/LoppuTulokset.css';
 
 
 const LOPPUTULOKSET = [
 {nimi:'Jokerit',logo: 'Jok S', pisteet:'6',sija: '1'},
-{nimi:'Lapuan Virkiä',logo: 'Vir J', pisteet:'7',sija: '2'},
-{nimi:'Pelicans',logo: 'Pel T', pisteet:'11',sija: '3'},
-{nimi:'Hämeenlinnan Pallokerho',logo: 'HPK V', pisteet:'11',sija: '3'},
+{nimi:'Lapuan Virkiä',logo: 'Vir J', pisteet:'10',sija: '3'},
+{nimi:'Hämeenlinnan Pallokerho',logo: 'HPK V', pisteet:'10',sija: '2'},
+
+{nimi:'Pelicans',logo: 'Pel T', pisteet:'13',sija: '4'},
 {nimi:'Kiekko-Vantaa',logo: 'KiVa H', pisteet:'18',sija: '5'},
-{nimi:'Vuosaaren Viikingit' ,logo: 'Viik H',pisteet:'21',sija: '6'},
-{nimi:'Imatran Ketterä',logo: 'Ket V', pisteet:'22',sija: '7'},
-{nimi:'KJT',logo: 'KJT W', pisteet:'22',sija: '7'}
+{nimi:'Vuosaaren Viikingit' ,logo: 'Viik H',pisteet:'20',sija: '6'},
+{nimi:'Imatran Ketterä',logo: 'Ket V', pisteet:'23',sija: '7'},
+{nimi:'KJT',logo: 'KJT W', pisteet:'23',sija: '7'}
 ];
 
 class LoppuTulokset extends Component {

@@ -28,6 +28,7 @@ export class JoukkueApi {
   calculateJoukkuePisteet(joukkueTunnus, ottelut=[]) {
     if(ottelut.length === 0) return null;
 
+    console.log(ottelut);
     const points = ottelut.reduce((acc, ottelu) => {
       acc += (ottelu.koti === joukkueTunnus && ottelu.tulos[0] > ottelu.tulos[1]) ? 2 :
             (ottelu.vieras === joukkueTunnus && ottelu.tulos[0] < ottelu.tulos[1]) ? 2 :
@@ -42,10 +43,16 @@ export class JoukkueApi {
 
  calculateJoukkueRankings(joukkueTunnus, ottelut=[]) {
 
+   console.log("joukkueTunnus:",joukkueTunnus);
      const rankings = ottelut.reduce((acc,curr) => {
+
+       //Skip ice cleaning or price ceremony
+       if(curr.jaakunnostus || curr.palkintojen_jako) return acc;
 
        if(!acc.find((joukkue) => (joukkue.tunniste === curr.koti))) {
           let joukkue = this.getJoukkue(curr.koti);
+          console.log("curr.koti:",curr, "joukkue:",joukkue);
+
           joukkue.pisteet = this.calculateJoukkuePisteet(joukkue.tunniste, ottelut);
           acc.push(joukkue);
        }

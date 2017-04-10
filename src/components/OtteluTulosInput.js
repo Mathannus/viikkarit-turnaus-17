@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import OtteluApi from '../OtteluApi';
 import './css/OtteluTulosInput.css';
 
 class OtteluTulosInput extends Component {
@@ -34,12 +33,6 @@ class OtteluTulosInput extends Component {
     const ottelu = this.state.ottelu;
     ottelu.tulos[0] = this.state.tulosKoti;
     ottelu.tulos[1] = this.state.tulosVieras;
-/*
-    OtteluApi.saveOtteluTulos(ottelu, (data) => {
-      console.log("got data from server",data);
-      this.setState({updated:true});
-    });
-*/
     this.props.onTulosUpdateSave(ottelu);
   }
 

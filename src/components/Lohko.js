@@ -14,6 +14,7 @@ class Lohko extends Component {
 
 componentDidMount() {
   OtteluApi.getOttelut(['pelatut','lohko',this.props.tunniste], (ottelut) => {
+    console.log("ottelut:",ottelut);
     this.setState({ottelut: ottelut});
   });
 

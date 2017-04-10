@@ -1,5 +1,6 @@
 import Auth from './Auth';
 import jQuery from 'jquery';
+import ottelut from './ottelut.json';
 
 class OtteluApi {
 
@@ -19,9 +20,29 @@ class OtteluApi {
 
   static getOttelut(params, cbSuccess) {
     const serverUrl = process.env.REACT_APP_API_SERVER_HOST,
-    url = serverUrl +"/"+ ["ottelut", ...params].join('/');
-    console.log(url);
-    jQuery.getJSON(url).done(cbSuccess);
+          url = serverUrl +"/"+ ["ottelut", ...params].join('/');
+
+//This is a hack for serving the results from a static json file after the tournament has finnished.
+    if(serverUrl === 'static') {
+      if(params.length > 0) {
+        console.log(params[2]);
+        const lohko = params[2].toLowerCase();
+
+        let ottelutByLohko = null;
+        switch(lohko) {
+          case 'a':  ottelutByLohko = ottelut.kaukalo1.takakentta.ottelut; break;
+          case 'b':  ottelutByLohko = ottelut.kaukalo1.etukentta.ottelut; break;
+          case 'c':  ottelutByLohko = ottelut.kaukalo2.takakentta.ottelut; break;
+          case 'd':  ottelutByLohko = ottelut.kaukalo2.etukentta.ottelut; break;
+        }
+        ottelutByLohko = ottelutByLohko.filter((ottelu) => (!(ottelu.jaakunnostus || ottelu.palkintojen_jako)));
+          cbSuccess(ottelutByLohko);
+      } else {
+      cbSuccess(ottelut);
+      }
+    } else {
+      jQuery.getJSON(url).done(cbSuccess);
+    }
   }
 
 }

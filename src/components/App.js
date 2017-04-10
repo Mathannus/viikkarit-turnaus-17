@@ -23,7 +23,6 @@ class App extends Component {
     let nextComponent = null;
     switch(viewName) {
       case 'joukkue':
-        console.log(this.joukkueTunnus);
         nextComponent = <Joukkue tunnus={this.joukkueTunnus}/>
         break;
       case 'lohkot':

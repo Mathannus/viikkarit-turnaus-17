@@ -12,16 +12,13 @@ class Kaukalo extends Component {
    super(props);
    this.name = props.name;
    this.title = props.title || (props.name === 'kaukalo1' ? 'Kaukalo 1' : 'Kaukalo 2');
-   console.log(props.title,this.title);
    this.ottelut = props.ottelut || {};
    this.admin = props.admin || false;
-
    this.state = {ottelut: {etukentta: [], takakentta: []}};
  }
 
   componentDidMount() {
     OtteluApi.getOttelut([], (data) => {
-      console.log(data);
       const kaukalo = data[this.name];
       this.setState ({ottelut: {etukentta: kaukalo.etukentta.ottelut, takakentta: kaukalo.takakentta.ottelut }});
     })
