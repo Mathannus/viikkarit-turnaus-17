@@ -1,0 +1,15 @@
+{
+    "name": "mhannus/tulospavelin",
+    "version": "1.0.2",
+    "require": {
+        "altorouter/altorouter": "1.2.0",
+        "firebase/php-jwt": "4.*"
+    },
+    "autoload": {
+        "classmap": [ "src/" ]
+    },
+    "scripts": {
+        "post-update-cmd": [
+            ]
+    }
+}
