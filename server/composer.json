@@ -9,7 +9,12 @@
         "classmap": [ "src/" ]
     },
     "scripts": {
-        "post-update-cmd": [
-            ]
+        "post-update-cmd": [],
+        "test" : [
+            "phpunit"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
     }
 }
