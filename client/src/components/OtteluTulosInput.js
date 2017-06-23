@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import {updateGame} from '../actions'
+import { connect } from 'react-redux'
+
 import './css/OtteluTulosInput.css';
 
 class OtteluTulosInput extends Component {
@@ -9,6 +12,7 @@ class OtteluTulosInput extends Component {
     const tulosKoti = props.ottelu.tulos[0] || "",
       tulosVieras = props.ottelu.tulos.length === 0 ? "" : props.ottelu.tulos[1];
     this.state = {
+      ottelut: [],
       ottelu: props.ottelu,
       tulosKoti: tulosKoti,
       tulosVieras: tulosVieras,
@@ -48,5 +52,21 @@ class OtteluTulosInput extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ( {
+  ottelut: state.ottelut
+})
+
+
+const mapDispatchToProps = (dispatch) => ({
+    onTulosUpdateSave: (ottelu) => {
+      console.log("dispatching game:",ottelu)
+      dispatch(updateGame(ottelu.id, ottelu.tulos))
+    }
+})
+
+
+OtteluTulosInput = connect(mapStateToProps,mapDispatchToProps) (OtteluTulosInput);
+
 
 export default OtteluTulosInput;

@@ -9,10 +9,7 @@ class App extends Component {
 
   constructor(props) {
       super(props);
-      console.log(props);
       this.viewName = props.view;
-
-
       this.joukkueTunnus = props.joukkueTunnus || 'Viik R';
       this.state = {
         admin: props.admin || false
@@ -44,7 +41,6 @@ class App extends Component {
 
 
   render() {
-    console.log("App.render");
     let component = this.getNextComponent(this.viewName);
     return (
         <div>

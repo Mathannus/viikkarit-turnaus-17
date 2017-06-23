@@ -38,6 +38,10 @@ it("getJoukkue should return exactly one team", () => {
     pisteet: "",
     lohko: "A"});
 });
+it("getJoukkue should return empty object when no team is found", () => {
+  const joukkue = joukkueApi.getJoukkue("Not found");
+  expect(joukkue).toBeDefined();
+});
 
 it("calculateJoukkuePisteet when Viik H should be 3", () =>{
   const points = joukkueApi.calculateJoukkuePisteet("Viik H", testGameData);

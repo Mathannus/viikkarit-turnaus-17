@@ -1,12 +1,21 @@
-import Joukkueet from './joukkueet.json';
 
 export class JoukkueApi {
 
-  static joukkueet;
 
-  constructor() {
+  constructor(joukkueet = []) {
+    console.log("JoukkueApi.constructor",joukkueet);
+    this.joukkueet = joukkueet;
+//    this.getJoukkueetFromServer();
+    //this.joukkueet = Joukkueet.joukkueet;
+  }
 
-    this.joukkueet = Joukkueet.joukkueet;
+  getJoukkueetFromServer(params = []) {
+    const serverUrl = process.env.REACT_APP_API_SERVER_HOST,
+          url = serverUrl +"/"+ ["joukkueet", ...params].join('/');
+
+          fetch(url).then((response) => response.json())
+          .then((items) => console.log(items))
+          .then((items) => this.joukkueet = items);
   }
 
   getJoukkueet(lohko="") {
@@ -20,6 +29,7 @@ export class JoukkueApi {
   }
 
   getJoukkue(tunniste) {
+    console.log("getJoukkue",tunniste, this.joukkeet);
     return this.joukkueet.find((joukkue) =>{
       return joukkue.tunniste === tunniste;
     });
@@ -28,7 +38,8 @@ export class JoukkueApi {
   calculateJoukkuePisteet(joukkueTunnus, ottelut=[]) {
     if(ottelut.length === 0) return null;
 
-    console.log(ottelut);
+    console.log("calculateJoukkuePisteet",joukkueTunnus, ottelut);
+
     const points = ottelut.reduce((acc, ottelu) => {
       acc += (ottelu.koti === joukkueTunnus && ottelu.tulos[0] > ottelu.tulos[1]) ? 2 :
             (ottelu.vieras === joukkueTunnus && ottelu.tulos[0] < ottelu.tulos[1]) ? 2 :
@@ -38,12 +49,12 @@ export class JoukkueApi {
       return acc;
     },0);
 
+    console.log(points);
     return points;
   }
 
  calculateJoukkueRankings(joukkueTunnus, ottelut=[]) {
 
-   console.log("joukkueTunnus:",joukkueTunnus);
      const rankings = ottelut.reduce((acc,curr) => {
 
        //Skip ice cleaning or price ceremony
@@ -51,7 +62,7 @@ export class JoukkueApi {
 
        if(!acc.find((joukkue) => (joukkue.tunniste === curr.koti))) {
           let joukkue = this.getJoukkue(curr.koti);
-          console.log("curr.koti:",curr, "joukkue:",joukkue);
+//          console.log("curr.koti:",curr, "joukkue:",joukkue);
 
           joukkue.pisteet = this.calculateJoukkuePisteet(joukkue.tunniste, ottelut);
           acc.push(joukkue);
@@ -73,4 +84,4 @@ export class JoukkueApi {
  }
 }
 
-export let joukkueApi = new JoukkueApi();
+//export let joukkueApi = new JoukkueApi();

@@ -6,7 +6,6 @@ import logoWoodberg from './viikingit_woodberg_turnaus_logo.png';
 class Main extends Component {
 
   render() {
-    console.log('main.render');
     return (
       <div className="App">
         <div className="App-header">

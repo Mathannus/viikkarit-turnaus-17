@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
-import OtteluApi from '../OtteluApi';
 import OtteluTaulukko from './OtteluTaulukko';
-import {joukkueApi} from '../JoukkueApi';
+import {JoukkueApi} from '../JoukkueApi';
+import {fetchGameData, fetchTeamData} from '../actions'
+import {connect} from 'react-redux';
+
 //import './css/Joukkue.css';
 
 class Joukkue extends Component {
@@ -11,27 +13,36 @@ class Joukkue extends Component {
     super(props);
     this.joukkueTunnus = decodeURI(props.tunnus);
     console.log(this.joukkueTunnus);
-    const joukkue = joukkueApi.getJoukkue(this.joukkueTunnus);
+//    const joukkue = joukkueApi.getJoukkue(this.joukkueTunnus);
 
-    this.state = {joukkue: joukkue, ottelut: []};
+//    this.state = {joukkue: joukkue, ottelut: []};
   }
 
 
   componentDidMount() {
-    console.log(this.state.joukkue.tunniste);
+//    console.log(this.state.joukkue.tunniste);
+    this.props.fetchTeam(this.joukkueTunnus);
+    this.props.fetchAllTeams();
+    this.props.fetchGames(['pelatut','joukkue',this.joukkueTunnus]);
+/*
+this.props.fetchGames(['pelatut','lohko', this.state.joukkue.lohko]);
     OtteluApi.getOttelut(['pelatut','lohko', this.state.joukkue.lohko],(data) => {
       console.log(data, ' is array ', Array.isArray(data));
       this.setState({ottelut: [...data]});
     });
+*/
   }
 
   getJoukkueOttelut() {
-    const jTunniste = this.state.joukkue.tunniste;
-    return this.state.ottelut.filter((ottelu) => (ottelu.koti === jTunniste || ottelu.vieras === jTunniste));
+    const jTunniste = this.props.joukkue.tunniste;
+    const teamGames = this.props.ottelut.filter((ottelu) => (ottelu.koti === jTunniste || ottelu.vieras === jTunniste));
+
+    return teamGames;
   }
 
   getTehdytMaalit(){
-    const jTunniste = this.state.joukkue.tunniste;
+    const jTunniste = this.props.joukkue.tunniste;
+
     const tehdyt = this.getJoukkueOttelut().reduce((acc,ottelu) =>{
       acc += (ottelu.koti === jTunniste) ? ottelu.tulos[0] : ottelu.tulos[1];
       return acc;
@@ -40,7 +51,7 @@ class Joukkue extends Component {
   }
 
   getPaastetytMaalit() {
-    const jTunniste = this.state.joukkue.tunniste;
+    const jTunniste = this.props.joukkue.tunniste;
     const maalit = this.getJoukkueOttelut().reduce((acc,ottelu) =>{
       acc += (ottelu.koti === jTunniste) ? ottelu.tulos[1] : ottelu.tulos[0];
       return acc;
@@ -50,7 +61,23 @@ class Joukkue extends Component {
   }
 
   render() {
-    const joukkue = this.state.joukkue;
+    let {joukkue, joukkueet, ottelut} = this.props;
+
+    console.log("Joukkue.render", this.props);
+
+    if(!joukkue || !ottelut) {
+      return null;
+    }
+
+    let joukkueApi = new JoukkueApi(joukkueet);
+
+    let pisteet = joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, ottelut);
+    console.log("Points",pisteet);
+
+//    let ranking ="-";
+    let ranking = joukkueApi.calculateJoukkueRankings(joukkue.tunniste, ottelut);
+    console.log("Ranking",ranking);
+
     return (
       <div className="Joukkue">
         <div className="col-xs-12 col-sm-6">
@@ -61,9 +88,9 @@ class Joukkue extends Component {
             <dt>lohko</dt>
             <dd>{joukkue.lohko}</dd>
             <dt>pisteet</dt>
-            <dd>{joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
+            <dd>{pisteet}</dd>
             <dt>ranking</dt>
-            <dd>{joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.state.ottelut) || '-'}</dd>
+            <dd>{ranking}</dd>
             <dt>Tehdyt maalit</dt>
             <dd>{this.getTehdytMaalit() || '-'}</dd>
             <dt>Päästetyt maalit</dt>
@@ -72,11 +99,29 @@ class Joukkue extends Component {
         </div>
         <div className="col-xs-12 col-sm-6">
           <h3>Pelatut ottelut: </h3>
-          <OtteluTaulukko ottelut={this.getJoukkueOttelut()} />
+          <OtteluTaulukko ottelut={this.props.ottelut} />
         </div>
       </div>
     )
   }
 }
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    joukkueet: state.teams.joukkueet,
+    joukkue: state.teams.joukkue,
+    ottelut: state.games.ottelut
+  }
+}
 
-export default Joukkue;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchTeam: (teamId) => dispatch(fetchTeamData(['joukkue',teamId])),
+    fetchAllTeams: () => dispatch(fetchTeamData()),
+    fetchGames: (params) => dispatch(fetchGameData(params))
+  }
+
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (Joukkue);
