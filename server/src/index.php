@@ -30,6 +30,15 @@ $router->map('GET', '/ottelut/pelatut/lohko/[*:lohko]' , function($lohko) {
 $router->map('GET', '/ottelut/pelatut/joukkue/[*:joukkue]' , function($joukkue) {
     require __DIR__ . '/views/played-games.php';
 });
+$router->map('GET', '/joukkueet' , function() {
+    require __DIR__ . '/views/teams.php';
+});
+$router->map('GET', '/joukkueet/lohko/[a:lohko]' , function($lohko) {
+    require __DIR__ . '/views/teams.php';
+});
+$router->map('GET', '/joukkueet/joukkue/[*:teamId]' , function($teamId) {
+    require __DIR__ . '/views/teams.php';
+});
 
 $router->map('POST', '/ottelu/[i:id]' , function($id) {
     global $jwtServerKey;
