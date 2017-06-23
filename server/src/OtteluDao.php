@@ -64,6 +64,19 @@ class OtteluDao {
     return $ottelut;
   }
 
+  function getPelatutOttelut() {
+    $ottelut = array();
+    $stmt = $this->dbh->prepare('SELECT * FROM ottelut WHERE maalit_koti_joukkue >=0 ORDER BY aika');
+    $stmt->execute();
+
+    while ($row = $stmt->fetch()) {
+      $ottelut[] = new Ottelu($row);
+    }
+
+    $stmt = null;
+    return $ottelut;
+  }
+
   function getPelatutOttelutByLohko($lohko) {
     $ottelut = array();
     $stmt = $this->dbh->prepare('SELECT * FROM ottelut WHERE maalit_koti_joukkue >=0 and lohko=:lohko ORDER BY aika');
