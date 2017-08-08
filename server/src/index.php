@@ -7,7 +7,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization,Accept');
 header('Content-Type: application/json');
 
 //$jwtServerKey = 'secret_server_key';
@@ -40,8 +40,10 @@ $router->map('GET', '/joukkueet/joukkue/[*:teamId]' , function($teamId) {
     require __DIR__ . '/views/teams.php';
 });
 
-$router->map('POST', '/ottelu/[i:id]' , function($id) {
+$router->map('POST|OPTIONS', '/ottelu/[i:id]' , function($id) {
     global $jwtServerKey;
+
+    if(getenv('REQUEST_METHOD') === 'OPTIONS') return;
     require __DIR__ . '/views/update-game-score.php';
 });
 $router->map('POST', '/login' , function() {

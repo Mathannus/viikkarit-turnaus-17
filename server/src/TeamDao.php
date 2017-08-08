@@ -54,10 +54,12 @@ class TeamDao {
 
     $stmt = $this->dbh->prepare($sql);
     $stmt->bindParam(':teamId', $teamId);
+
+    $stmt->setFetchMode(PDO::FETCH_CLASS, 'Team');
     $stmt->execute();
 
-    $team = $stmt->fetch(PDO::FETCH_ASSOC);
-    if($team)
+    $team = $stmt->fetch();
+//    if($team)
     return $team;
 
   }
