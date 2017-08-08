@@ -16,7 +16,8 @@ class OtteluTulosInput extends Component {
       ottelu: props.ottelu,
       tulosKoti: tulosKoti,
       tulosVieras: tulosVieras,
-      updated: false
+      updated: false,
+      buttonDisabled: true
     };
 
     this.saveOtteluTulos = this.saveOtteluTulos.bind(this);
@@ -27,9 +28,13 @@ class OtteluTulosInput extends Component {
     const target = e.target;
     const value = target.value,
           name = target.name;
+    var buttonDisabled = this.state.buttonDisabled;
 
+          if(!isNaN(parseInt(value))) {
+            buttonDisabled = false;
+          }
+          this.setState({[name]: value, buttonDisabled});
 
-    this.setState({[name]: value});
 
   }
 
@@ -42,20 +47,28 @@ class OtteluTulosInput extends Component {
 
 
   render() {
+
+    console.log("updated:",this.props.updated);
+
     return(
-      <div className={this.state.updated ? 'tulos-input-updated' : 'tulos-input'}>
+      <div className={this.props.updated ? 'tulos-input-updated' : 'tulos-input'}>
         <input type="text" name="tulosKoti" className="input-tulos-koti" onChange={this.changeTulos} value={this.state.tulosKoti}/>
         -
         <input type="text" name="tulosVieras" className="input-tulos-vieras" onChange={this.changeTulos} value={this.state.tulosVieras}/>
-        <button className="btn-tallenna-tulos" onClick={this.saveOtteluTulos}>Tallenna</button>
+        <button className="btn btn-primary btn-tallenna-tulos" disabled={this.state.buttonDisabled ? 'disabled' : ''} onClick={this.saveOtteluTulos}>Tallenna</button>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ( {
-  ottelut: state.ottelut
-})
+const mapStateToProps = (state,ownProps) => {
+
+
+  console.log(state);
+  return {
+  ottelut: state.ottelut,
+  updated: state.games.otteluId === ownProps.ottelu.id && state.games.otteluUpdated
+}}
 
 
 const mapDispatchToProps = (dispatch) => ({

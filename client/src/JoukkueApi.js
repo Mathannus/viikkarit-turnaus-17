@@ -4,7 +4,7 @@ export class JoukkueApi {
 
   constructor(joukkueet = []) {
     console.log("JoukkueApi.constructor",joukkueet);
-    this.joukkueet = joukkueet;
+    this.joukkueet = [...joukkueet];
 //    this.getJoukkueetFromServer();
     //this.joukkueet = Joukkueet.joukkueet;
   }
@@ -29,7 +29,7 @@ export class JoukkueApi {
   }
 
   getJoukkue(tunniste) {
-    console.log("getJoukkue",tunniste, this.joukkeet);
+//    console.log("getJoukkue",tunniste, this.joukkeet);
     return this.joukkueet.find((joukkue) =>{
       return joukkue.tunniste === tunniste;
     });
@@ -38,7 +38,7 @@ export class JoukkueApi {
   calculateJoukkuePisteet(joukkueTunnus, ottelut=[]) {
     if(ottelut.length === 0) return null;
 
-    console.log("calculateJoukkuePisteet",joukkueTunnus, ottelut);
+//    console.log("calculateJoukkuePisteet",joukkueTunnus, ottelut);
 
     const points = ottelut.reduce((acc, ottelu) => {
       acc += (ottelu.koti === joukkueTunnus && ottelu.tulos[0] > ottelu.tulos[1]) ? 2 :

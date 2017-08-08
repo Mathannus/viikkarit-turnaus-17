@@ -1,6 +1,7 @@
 export const FETCH_TEAMS = "FETCH_TEAMS"
 export const TEAMS_IS_LOADING = "TEAMS_IS_LOADING"
 export const TEAMS_FETCH_DATA_SUCCESS = "TEAMS_FETCH_DATA_SUCCESS";
+export const TEAM_FETCH_DATA_SUCCESS = "TEAM_FETCH_DATA_SUCCESS";
 export const TEAMS_FETCH_DATA_ERROR = "TEAMS_FETCH_DATA_ERROR";
 
 export function teamsIsLoading(bool) {
@@ -12,7 +13,7 @@ export function teamsIsLoading(bool) {
   }
 }
 
-export function teamsFetchDataSuccess(teams) {
+export function teamsFetchDataSuccess(teams, params = []) {
   return {
     type: TEAMS_FETCH_DATA_SUCCESS,
     payload: {
@@ -46,7 +47,11 @@ export function fetchTeamData(params = []) {
             return response;
         })
         .then((response) => response.json())
-        .then((items) => dispatch(teamsFetchDataSuccess(items)))
-        .catch(() => dispatch(fetchTeamDataError(true)));
+        .then((items) => dispatch(teamsFetchDataSuccess(items,params)))
+        .catch((e) => {
+          console.log(e.name + ' : '+ e.message);
+          dispatch(fetchTeamDataError(true))
+        }
+        );
   }
 }

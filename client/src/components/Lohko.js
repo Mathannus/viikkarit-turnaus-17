@@ -2,10 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import LohkoTaulukko from './LohkoTaulukko'
 import OtteluTaulukko from './OtteluTaulukko'
-import OtteluApi from '../OtteluApi'
-import {JoukkueApi} from '../JoukkueApi'
 import {fetchTeamData, fetchGameData} from '../actions'
-
 
 class Lohko extends Component {
 
@@ -20,22 +17,10 @@ getKentta() {
 }
 
 render() {
-
     console.log("Lohko.render()",this.props);
-    const joukkueApi = new JoukkueApi(this.props.joukkueet);
     const lohkoId = this.props.tunniste.toUpperCase(),
-          joukkueet = this.props.joukkueet ? this.props.joukkueet.map((joukkue) => {
-//            joukkue.pisteet = joukkueApi.calculateJoukkuePisteet(joukkue.tunniste, this.props.ottelut);
-            joukkue.ranking = joukkueApi.calculateJoukkueRankings(joukkue.tunniste, this.props.ottelut);
-            return joukkue;
-          }).sort((a,b) => {
-            let sortIndex = 0;
-            if(a.ranking === 0) {
-              sortIndex = 1;
-            } else  {
-                sortIndex = a.ranking - b.ranking;
-            }
-            return sortIndex;
+          joukkueet = this.props.joukkueet ? this.props.joukkueet.sort((a,b) => {
+            return a.ranking === 0 ? 1 : a.ranking - b.ranking;
           }) : [];
 
     return (
@@ -55,7 +40,7 @@ render() {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log("mapStateToProps",state);
   return {
     joukkueet: state.teams.joukkueet,
     ottelut: state.games.ottelut

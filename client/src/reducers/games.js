@@ -1,8 +1,12 @@
-import { GAMES_FETCH_DATA_SUCCESS }  from '../actions';
+import { GAMES_FETCH_DATA_SUCCESS, GAME_IS_UPDATING,GAME_UPDATE_SUCCESS }  from '../actions';
 
 
 const initialState = {
-  ottelut: []
+  ottelut: [],
+  otteluId: 0,
+  otteluIsUpdating: false,
+  otteluTulos: [],
+  otteluUpdated: false
 }
 
 export function games(state, action) {
@@ -18,6 +22,20 @@ export function games(state, action) {
       state = Object.assign({}, state, {
         ottelut: action.payload.games
       }); break;
+    case GAME_IS_UPDATING:
+      state = Object.assign({}, state , {
+        otteluId: action.payload.gameId,
+        otteluIsUpdating: action.payload.isUpdating
+      });
+      break;
+    case GAME_UPDATE_SUCCESS:
+      state = Object.assign({}, state , {
+        otteluId: action.payload.gameId,
+        otteluIsUpdating: false,
+        otteluUpdated: true,
+        otteluTulos: action.payload.newScore
+      });
+      break;
       default:
   }
 

@@ -106,7 +106,7 @@ this.props.fetchGames(['pelatut','lohko', this.state.joukkue.lohko]);
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log("mapStateToProps:",state);
   return {
     joukkueet: state.teams.joukkueet,
     joukkue: state.teams.joukkue,
